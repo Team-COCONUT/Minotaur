@@ -41,16 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\BattleAxe.cs" />
     <Compile Include="ConsoleDrawEngine.cs" />
+    <Compile Include="Coords.cs" />
     <Compile Include="GameSprite.cs" />
+    <Compile Include="Items\HealthPotion.cs" />
     <Compile Include="Interfaces\IDrawEngine.cs" />
     <Compile Include="Interfaces\IEquippable.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Interfaces\IUsable.cs" />
     <Compile Include="Labyrinth.cs" />
-    <Compile Include="Minotaur.cs" />
-    <Compile Include="Mob.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="GameSprites\Minotaur.cs" />
+    <Compile Include="GameSprites\Mob.cs" />
+    <Compile Include="GameSprites\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
