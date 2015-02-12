@@ -105,7 +105,7 @@ namespace Minotaur
                 Console.WriteLine(sbMid + "|");
 
             }
-            Console.WriteLine(firstLine);
+            Console.WriteLine(firstLine + "+");
         }
     }
 }

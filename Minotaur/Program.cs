@@ -6,6 +6,10 @@ namespace Minotaur
     {
         static void Main(string[] args)
         {
+            Console.BufferHeight = Console.WindowHeight = 50;
+            Console.BufferWidth = Console.WindowWidth = 120;
+            Console.SetWindowSize(120, 50);
+            Console.SetBufferSize(120, 50);
             var maze = new Labyrinth(26, 10);
             maze.Display();
 
