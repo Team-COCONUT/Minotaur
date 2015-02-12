@@ -44,18 +44,18 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Minotaur.Labyrinth">
-    <Position X="10.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Labyrinth.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Minotaur.GameSprites.Minotaur">
     <Position X="10" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameSprites\Minotaur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Labyrinth">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCIAAABCAAAAQAAABAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Minotaur.Interfaces.IEquippable">
