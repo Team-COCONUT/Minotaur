@@ -8,31 +8,33 @@ namespace Minotaur
 {
     public class Labyrinth
     {
-        private readonly CellState[,] _cells;
-        private readonly int _width;
-        private readonly int _height;
-        private readonly Random _rng;
-
         public Labyrinth(int width, int height)
         {
-            _width = width;
-            _height = height;
-            _cells = new CellState[width, height];
-            for (var x = 0; x < width; x++)
+            this.Width = width;
+            this.Height = height;
+            this.Cells = new CellState[this.Width, this.Height];
+
+            for (var row = 0; row < this.Width; row++)
             {
-                for (var y = 0; y < height; y++)
+                for (var col = 0; col < this.Height; col++)
                 {
-                    _cells[x, y] = CellState.Initial;
+                    this.Cells[row, col] = CellState.Initial;
                 }
             }
-            _rng = new Random();
-            VisitCell(_rng.Next(width), _rng.Next(height));
+
+            this.RandomNumberGenerator = new Random();
+            VisitCell(this.RandomNumberGenerator.Next(width), this.RandomNumberGenerator.Next(height));
         }
 
-        public CellState this[int x, int y]
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public CellState[,] Cells { get; set; }
+        public Random RandomNumberGenerator { get; set; }
+
+        public CellState this[int row, int col]
         {
-            get { return _cells[x, y]; }
-            set { _cells[x, y] = value; }
+            get { return this.Cells[row, col]; }
+            set { this.Cells[row, col] = value; }
         }
 
         public IEnumerable<RemoveWallAction> GetNeighbours(Point p)
@@ -45,6 +47,7 @@ namespace Minotaur
                     Wall = CellState.Left
                 };
             }
+
             if (p.Y > 0)
             {
                 yield return new RemoveWallAction
@@ -53,7 +56,8 @@ namespace Minotaur
                     Wall = CellState.Top
                 };
             }
-            if (p.X < _width - 1)
+
+            if (p.X < this.Width - 1)
             {
                 yield return new RemoveWallAction
                 {
@@ -61,7 +65,8 @@ namespace Minotaur
                     Wall = CellState.Right
                 };
             }
-            if (p.Y < _height - 1)
+
+            if (p.Y < this.Height - 1)
             {
                 yield return new RemoveWallAction
                 {
@@ -71,14 +76,15 @@ namespace Minotaur
             }
         }
 
-        public void VisitCell(int x, int y)
+        public void VisitCell(int row, int col)
         {
-            this[x, y] |= CellState.Visited;
-            foreach (var p in GetNeighbours(new Point(x, y))
-                        .Shuffle(_rng)
+            this[row, col] |= CellState.Visited;
+
+            foreach (var p in GetNeighbours(new Point(row, col))
+                        .Shuffle(this.RandomNumberGenerator)
                         .Where(z => !(this[z.Neighbour.X, z.Neighbour.Y].HasFlag(CellState.Visited))))
             {
-                this[x, y] -= p.Wall;
+                this[row, col] -= p.Wall;
                 this[p.Neighbour.X, p.Neighbour.Y] -= p.Wall.OppositeWall();
                 VisitCell(p.Neighbour.X, p.Neighbour.Y);
             }
@@ -87,19 +93,23 @@ namespace Minotaur
         public void Display()
         {
             var firstLine = string.Empty;
-            for (var y = 0; y < _height; y++)
+
+            for (var col = 0; col < this.Height; col++)
             {
                 var sbTop = new StringBuilder();
                 var sbMid = new StringBuilder();
-                for (var x = 0; x < _width; x++)
+
+                for (var row = 0; row < this.Width; row++)
                 {
-                    sbTop.Append(this[x, y].HasFlag(CellState.Top) ? "+--" : "+  ");
-                    sbMid.Append(this[x, y].HasFlag(CellState.Left) ? "|  " : "   ");
+                    sbTop.Append(this[row, col].HasFlag(CellState.Top) ? "+--" : "+  ");
+                    sbMid.Append(this[row, col].HasFlag(CellState.Left) ? "|  " : "   ");
                 }
+
                 if (firstLine == string.Empty)
                 {
                     firstLine = sbTop.ToString();
                 }
+
                 Console.WriteLine(sbTop + "+");
                 Console.WriteLine(sbMid + "|");
                 Console.WriteLine(sbMid + "|");
