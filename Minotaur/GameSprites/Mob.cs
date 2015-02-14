@@ -2,8 +2,8 @@
 {
     public abstract class Mob : GameSprite
     {
-        protected Mob(int x, int y, int healthPoints, int attackPoints) 
-            : base(x, y, healthPoints, attackPoints)
+        public Mob(Coords position, int healthPoints, int attackPoints) 
+            : base(position, healthPoints, attackPoints)
         {
         }
     }

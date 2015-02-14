@@ -1,21 +1,28 @@
-﻿using System.Collections.Generic;
-
-namespace Minotaur.GameSprites
+﻿namespace Minotaur.GameSprites
 {
+    using System.Collections.Generic;
+
     public class Player : GameSprite
     {
-        private List<Item> inventory;
+        private ICollection<Item> inventory;
 
-        public Player(int x, int y, int healthPoints, int attackPoints, List<Item> inventory) 
-            : base(x, y, healthPoints, attackPoints)
+        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory) 
+            : base(position, healthPoints, attackPoints)
         {
             this.Inventory = inventory;
         }
 
-        public List<Item> Inventory
+        public ICollection<Item> Inventory
         {
-            get { return inventory; }
-            private set { inventory = value; }
+            get 
+            {
+                return new List<Item>(inventory);
+            }
+
+            private set
+            {
+                inventory = value;
+            }
         }
     }
 }

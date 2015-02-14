@@ -2,8 +2,8 @@
 {
     public class Minotaur : Mob
     {
-        public Minotaur(int x, int y, int healthPoints, int attackPoints) 
-            : base(x, y, healthPoints, attackPoints)
+        public Minotaur(Coords position, int healthPoints, int attackPoints)
+            : base(position, healthPoints, attackPoints)
         {
         }
     }
