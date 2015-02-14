@@ -48,11 +48,13 @@
     <Compile Include="Items\BattleAxe.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />
-    <Compile Include="Items\HealthPotion.cs" />
+    <Compile Include="Items\BootsOfSwiftness.cs" />
+    <Compile Include="HealthPotion.cs" />
     <Compile Include="Interfaces\IDrawEngine.cs" />
     <Compile Include="Interfaces\IEquippable.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="Interfaces\IUsable.cs" />
+    <Compile Include="Interfaces\IHealthPotion.cs" />
+    <Compile Include="Items\Shield.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="GameSprites\Minotaur.cs" />
     <Compile Include="GameSprites\Mob.cs" />

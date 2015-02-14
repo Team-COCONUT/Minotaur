@@ -6,8 +6,8 @@
     {
         private ICollection<Item> inventory;
 
-        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory) 
-            : base(position, healthPoints, attackPoints)
+        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory,int defensePoints, int playerSpeed)
+            : base(position, healthPoints, attackPoints, defensePoints, playerSpeed)
         {
             this.Inventory = inventory;
         }

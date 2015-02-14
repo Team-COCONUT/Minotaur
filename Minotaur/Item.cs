@@ -2,19 +2,30 @@
 
 namespace Minotaur
 {
-    public abstract class Item : IUsable, IEquippable
-    {
-        protected Item(int healthEffect, int defenseEffect, int attackEffect)
+    public abstract class Item :IEquippable
+    {    
+        protected Item(int speedEffect, int defenseEffect, int attackEffect)
         {
-            this.HealthEffect = healthEffect;
+            this.SpeedEffect = speedEffect;
             this.DefenseEffect = defenseEffect;
             this.AttackEffect = attackEffect;
+        }     
+        public int SpeedEffect
+        {
+            get;
+            protected set;
         }
 
-        public int HealthEffect { get; set; }
+        public int DefenseEffect
+        {
+            get;
+            protected set;
+        }
 
-        public int DefenseEffect { get; set; }
-
-        public int AttackEffect { get; set; }
+        public int AttackEffect
+        {
+            get;
+            protected set;
+        }      
     }
 }

@@ -4,6 +4,7 @@
 
     using Minotaur.DrawEngines;
     using Minotaur.Interfaces;
+    using Minotaur.Items;
 
     class Program
     {
@@ -11,6 +12,8 @@
 
         static void Main()
         {
+            BattleAxe a = new BattleAxe();
+          
             Console.BufferHeight = Console.WindowHeight = 50;
             Console.BufferWidth = Console.WindowWidth = 120;
             Console.SetWindowSize(120, 50);
