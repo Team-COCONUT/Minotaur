@@ -5,6 +5,7 @@
 
     using Minotaur;
     using Minotaur.Interfaces;
+    using Minotaur.GameSprites;
 
     public class ConsoleDrawEngine : IDrawEngine
     {
@@ -39,6 +40,11 @@
         public void DisplayText(int x, int y, string text, ConsoleColor color)
         {
             this.PrintStringAtPosition(x, y, text, color);
+        }
+
+        public void DisplayPlayer(Player player)
+        {
+            this.PrintStringAtPosition(player.Position.X, player.Position.Y, "#", ConsoleColor.Blue);
         }
 
         private void PrintStringAtPosition(int x, int y, string text, ConsoleColor color)

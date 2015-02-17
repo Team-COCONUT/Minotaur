@@ -38,10 +38,16 @@
                 return this.position;
             }
 
-            private set
+            protected set
             {
                 this.position = value;
             }
+        }
+
+        public void ChangePosition(int x, int y)
+        {
+            this.position.X = x;
+            this.position.Y = y;
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Minotaur
+﻿namespace Minotaur
 {
+    using System;
+
     [Flags]
     public enum CellState
     {
