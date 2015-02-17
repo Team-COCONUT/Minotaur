@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace MazeGeneration
 {
+<<<<<<< HEAD
     public static class Extensions
     {
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random rng)
@@ -108,13 +109,43 @@ namespace MazeGeneration
             Debug.WriteLine(firstLine);
         }
     }
+=======
+    using System;
+
+    using Minotaur.DrawEngines;
+    using Minotaur.Interfaces;
+    using Minotaur.Items;
+>>>>>>> 2a3ba0e624c4ac1b0c750867294c3bf9069fb697
 
     class Program
     {
-        static void Main(string[] args)
+        private static IDrawEngine drawEngine = new ConsoleDrawEngine();
+
+        static void Main()
         {
+<<<<<<< HEAD
             var maze = new Maze(20, 20);
             maze.Display();
+=======
+            BattleAxe a = new BattleAxe();
+          
+            Console.BufferHeight = Console.WindowHeight = 50;
+            Console.BufferWidth = Console.WindowWidth = 120;
+            Console.SetWindowSize(120, 50);
+            Console.SetBufferSize(120, 50);
+            var maze = new Labyrinth(26, 10);
+            drawEngine.DisplayLabyrinth(maze);
+
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                drawEngine.DisplayText(i, 37, "=", ConsoleColor.Green);
+                drawEngine.DisplayText(i, 31, "=", ConsoleColor.Green);
+            }
+
+            drawEngine.DisplayText(2, 32, "Lives: ", ConsoleColor.Green);
+            drawEngine.DisplayText(15, 32, "Score: ", ConsoleColor.Green);
+            Console.WriteLine();
+>>>>>>> 2a3ba0e624c4ac1b0c750867294c3bf9069fb697
         }
     }
 }
