@@ -45,6 +45,7 @@
     <Compile Include="CellState.cs" />
     <Compile Include="DrawEngines\ConsoleDrawEngine.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Interfaces\Directions.cs" />
     <Compile Include="Items\BattleAxe.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Item.cs" />
     <Compile Include="Interfaces\IHealthPotion.cs" />
     <Compile Include="Items\Shield.cs" />
+    <Compile Include="KeyHandler.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="GameSprites\Minotaur.cs" />
     <Compile Include="GameSprites\Mob.cs" />

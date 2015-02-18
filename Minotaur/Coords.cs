@@ -6,7 +6,7 @@
         public int Y { get; set; }
 
         public Coords(int x, int y) 
-            : this()
+          :this()
         {
             this.X = x;
             this.Y = y;

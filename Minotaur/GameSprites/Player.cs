@@ -25,39 +25,54 @@
                 inventory = value;
             }
         }
-
-        public void Move(ConsoleKey key, CellState[,] labyrinthMatrix)
-        {
-            Coords newPosition = this.Position;
-
-            if(key == ConsoleKey.UpArrow || key == ConsoleKey.W)
-            {
-                newPosition.Y--;
-            }
-            else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
-            {
-                newPosition.Y++;
-            }
-            else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
-            {
-                newPosition.X--;
-            }
-            else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
-            {
-                newPosition.X++;
-            }
-
-            // checking position
-            bool isXInMatrix = newPosition.X >= 0 && newPosition.X < labyrinthMatrix.GetLength(0);
-            bool isYInMatrix = newPosition.Y >= 0 && newPosition.Y < labyrinthMatrix.GetLength(1);
-
-            if (isXInMatrix && isYInMatrix)
-            {
-                //if(labyrinthMatrix[newPosition.Y, newPosition.X].HasFlag(CellState.Visited))
-                //{
-                    this.ChangePosition(newPosition.X, newPosition.Y);
-                //}
-            }
+        public void MoveUp()
+        {           
+            this.ChangePosition(this.Position.X, this.Position.Y-1);
         }
+        public void MoveDown()
+        {
+            this.ChangePosition(this.Position.X, this.Position.Y+1);
+        }
+        public void MoveRight()
+        {
+            this.ChangePosition(this.Position.X+1, this.Position.Y);
+        }
+        public void MoveLeft()
+        {
+            this.ChangePosition(this.Position.X-1, this.Position.Y);
+        }
+        //public void Move(ConsoleKey key, CellState[,] labyrinthMatrix)
+        //{
+        //    Coords newPosition = this.Position;
+
+        //    if(key == ConsoleKey.UpArrow || key == ConsoleKey.W)
+        //    {
+        //        newPosition.Y--;
+        //    }
+        //    else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
+        //    {
+        //        newPosition.Y++;
+        //    }
+        //    else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
+        //    {
+        //        newPosition.X--;
+        //    }
+        //    else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
+        //    {
+        //        newPosition.X++;
+        //    }
+
+        //    // checking position
+        //    bool isXInMatrix = newPosition.X >= 0 && newPosition.X < labyrinthMatrix.GetLength(0);
+        //    bool isYInMatrix = newPosition.Y >= 0 && newPosition.Y < labyrinthMatrix.GetLength(1);
+
+        //    if (isXInMatrix && isYInMatrix)
+        //    {
+        //        //if(labyrinthMatrix[newPosition.Y, newPosition.X].HasFlag(CellState.Visited))
+        //        //{
+        //            this.ChangePosition(newPosition.X, newPosition.Y);
+        //        //}
+        //    }
+        //}
     }
 }
