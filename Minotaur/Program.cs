@@ -17,7 +17,7 @@
             Console.BufferWidth = Console.WindowWidth = 120;
             Console.SetWindowSize(120, 49);
             Console.SetBufferSize(120, 49);
-            var maze = new Labyrinth(26, 10);
+            var maze = new Labyrinth(26, 26);
             //drawEngine.DisplayLabyrinth(maze);
 
             Player player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
@@ -35,7 +35,7 @@
             //drawEngine.DisplayText(15, 32, "Score: ", ConsoleColor.Green);
             //Console.WriteLine();
 
-
+           
             //while (true)
             //{
             //    drawEngine.DisplayPlayer(player);

@@ -17,9 +17,9 @@ namespace Minotaur
             }
         }
 
-        public static CellState OppositeWall(this CellState orig)
-        {
-            return (CellState)(((int)orig >> 2) | ((int)orig << 2)) & CellState.Initial;
-        }
+    //    public static CellState OppositeWall(this CellState orig)
+    //    {
+    //        return (CellState)(((int)orig >> 2) | ((int)orig << 2)) & CellState.Initial;
+    //    }
     }
 }

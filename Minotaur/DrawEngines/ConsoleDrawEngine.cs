@@ -19,33 +19,32 @@
             this.labirinth = labirinth;
             this.keyhandler = keyboard;
         }
-        public void DisplayLabyrinth(Labyrinth labyrinth)
+         public void DisplayLabyrinth()
         {
-            var firstLine = string.Empty;
-
-            for (var col = 0; col < labyrinth.Height; col++)
+            StringBuilder sb = new StringBuilder();
+            for (int row = 0; row < this.labirinth.field.GetLength(0); row++)
             {
-                var sbTop = new StringBuilder();
-                var sbMid = new StringBuilder();
-
-                for (var row = 0; row < labyrinth.Width; row++)
+                for (int col = 0; col < this.labirinth.field.GetLength(1); col++)
                 {
-                    sbTop.Append(labyrinth[row, col].HasFlag(CellState.Top) ? "+--" : "+  ");
-                    sbMid.Append(labyrinth[row, col].HasFlag(CellState.Left) ? "|  " : "   ");
+                    char charToDraw = '#';
+                    if (this.labirinth.field[row, col] != CellsEnum.Wall)
+                    {
+                        charToDraw = ' ';
+                        //Console.BackgroundColor = ConsoleColor.DarkGray;
+                        //Console.ForegroundColor = ConsoleColor.DarkGray;
+                    }
+
+                    sb.Append(charToDraw);
+                    //Console.Write(charToDraw);
+                    //Console.Write(labyrinth[i, c]);
                 }
 
-                if (firstLine == string.Empty)
-                {
-                    firstLine = sbTop.ToString();
-                }
-
-                Console.WriteLine(sbTop + "+");
-                Console.WriteLine(sbMid + "|");
-                Console.WriteLine(sbMid + "|");
+                sb.AppendLine();
+                //Console.WriteLine();
             }
 
-            Console.WriteLine(firstLine + "+");
-        }
+            Console.WriteLine(sb);
+        }   
 
         public void MovePlayer(Directions direction)
         {
@@ -87,7 +86,8 @@
 
         public void Run()
         {
-            this.DisplayLabyrinth(labirinth);
+            this.labirinth.Generate();
+            this.DisplayLabyrinth();
             Coords prevoiusPosition = new Coords(0, 0);
             while (true)
             {               
@@ -95,10 +95,12 @@
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;
-                this.keyhandler.CheckKey();
                 Console.SetCursorPosition(prevoiusPosition.X, prevoiusPosition.Y);
-                Console.Write(" ");
+                Console.Write("");
+                this.keyhandler.CheckKey();
+               
             }
         }
+       
     }
 }

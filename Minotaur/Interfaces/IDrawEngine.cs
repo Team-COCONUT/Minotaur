@@ -5,8 +5,7 @@
 
     public interface IDrawEngine
     {
-        void DisplayLabyrinth(Labyrinth labyrinth);
-
+        void DisplayLabyrinth();
         void DisplayText(int x, int y, string text, ConsoleColor color);
         void DisplayPlayer(Player player);
     }

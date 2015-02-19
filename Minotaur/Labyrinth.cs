@@ -4,103 +4,103 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
+    using System.Text;
 
     public class Labyrinth
     {
-        public Labyrinth(int width, int height)
-        {
-            this.Width = width;
-            this.Height = height;
-            this.Cells = new CellState[this.Width, this.Height];
+        private bool[,] visitedCells;
+        public CellsEnum[,] field;
+        private int currRow = 0;
+        private int currCol = 0;
+        private int visited;
+        private Stack<int> rowStack;
+        private Stack<int> colStack;
+        private Random random;
 
-            this.InitializeLabyrinth();
-            this.RandomNumberGenerator = new Random();
-            this.VisitCell(this.RandomNumberGenerator.Next(width), this.RandomNumberGenerator.Next(height));
+        public Labyrinth(int height, int width)
+        {
+            this.visitedCells = new bool[height, width];
+            this.field = new CellsEnum[height, width];
+            this.visited = height * width;
+            this.rowStack = new Stack<int>();
+            this.colStack = new Stack<int>();
+            this.random = new Random();
         }
 
-        private void InitializeLabyrinth()
+        private List<int[]> GetAvailableCells(int currentRow, int currentCol, bool[,] visitedCells)
         {
-            for (var row = 0; row < this.Width; row++)
+            int[] left = new int[2] { 0, -1 };
+            int[] right = new int[2] { 0, 1 };
+            int[] up = new int[2] { -1, 0 };
+            int[] down = new int[2] { 1, 0 };
+
+            int[][] directions = new int[][] { left, right, up, down };
+            List<int[]> availableDirrections = new List<int[]>();
+            foreach (var direction in directions)
             {
-                for (var col = 0; col < this.Height; col++)
+                if (currentCol + direction[1] < visitedCells.GetLength(1) &&
+                    currentCol + direction[1] >= 0 &&
+                    currentRow + direction[0] < visitedCells.GetLength(0) &&
+                    currentRow + direction[0] >= 0 &&
+                    !visitedCells[direction[0] + currentRow, direction[1] + currentCol])
                 {
-                    this.Cells[row, col] = CellState.Initial;
+                    availableDirrections.Add(new int[] { currentRow + direction[0], currentCol + direction[1] });
                 }
             }
+
+            return availableDirrections;
         }
 
-        public int Width { get; set; }
-
-        public int Height { get; set; }
-
-        public CellState[,] Cells { get; set; }
-
-        public Random RandomNumberGenerator { get; set; }
-
-        public CellState this[int row, int col]
+        public void Generate()
         {
-            get 
-            { 
-                return this.Cells[row, col];
-            }
-
-            set 
+            while (visited > 0)
             {
-                this.Cells[row, col] = value;
-            }
-        }
-
-        private IEnumerable<RemoveWallAction> GetNeighbours(Point p)
-        {
-            if (p.X > 0)
-            {
-                yield return new RemoveWallAction
+                if (!visitedCells[currRow, currCol])
                 {
-                    Neighbour = new Point(p.X - 1, p.Y),
-                    Wall = CellState.Left
-                };
-            }
+                    visitedCells[currRow, currCol] = true;
+                    field[currRow, currCol] = CellsEnum.Empty;
+                    visited--;
+                }
 
-            if (p.Y > 0)
-            {
-                yield return new RemoveWallAction
+                List<int[]> availableDIrections = GetAvailableCells(currRow, currCol, visitedCells);
+                if (availableDIrections.Count > 0)
                 {
-                    Neighbour = new Point(p.X, p.Y - 1),
-                    Wall = CellState.Top
-                };
-            }
+                    int[] randomDirecgtion = availableDIrections[random.Next(0, availableDIrections.Count)];
+                    currRow = randomDirecgtion[0];
+                    currCol = randomDirecgtion[1];
+                    rowStack.Push(randomDirecgtion[0]);
+                    colStack.Push(randomDirecgtion[1]);
 
-            if (p.X < this.Width - 1)
-            {
-                yield return new RemoveWallAction
+                    List<int[]> walls = GetAvailableCells(currRow, currCol, visitedCells);
+                    if (walls.Count > 1)
+                    {
+                        int[] randomWall = walls[random.Next(0, walls.Count)];
+                        field[randomWall[0], randomWall[1]] = CellsEnum.Wall;
+                        visitedCells[randomWall[0], randomWall[1]] = true;
+                        visited--;
+                    }
+                }
+                else if (rowStack.Count > 0)
                 {
-                    Neighbour = new Point(p.X + 1, p.Y),
-                    Wall = CellState.Right
-                };
-            }
-
-            if (p.Y < this.Height - 1)
-            {
-                yield return new RemoveWallAction
+                    currRow = rowStack.Pop();
+                    currCol = colStack.Pop();
+                }
+                else
                 {
-                    Neighbour = new Point(p.X, p.Y + 1),
-                    Wall = CellState.Bottom
-                };
+                    for (int row = 0; row < visitedCells.GetLength(0); row++)
+                    {
+                        for (int col = 0; col < visitedCells.GetLength(1); col++)
+                        {
+                            if (visitedCells[row, col] == false)
+                            {
+                                currRow = row;
+                                currCol = col;
+                                visited--;
+                            }
+                        }
+                    }
+                }
             }
-        }
-
-        private void VisitCell(int row, int col)
-        {
-            this[row, col] |= CellState.Visited;
-            var cells = GetNeighbours(new Point(row, col))
-                        .Shuffle(this.RandomNumberGenerator)
-                        .Where(z => !(this[z.Neighbour.X, z.Neighbour.Y].HasFlag(CellState.Visited)));
-            foreach (var p in cells)
-            {
-                this[row, col] -= p.Wall;
-                this[p.Neighbour.X, p.Neighbour.Y] -= p.Wall.OppositeWall();
-                this.VisitCell(p.Neighbour.X, p.Neighbour.Y);
-            }
-        }
+        }      
     }
 }
