@@ -9,7 +9,7 @@
     public class Labyrinth
     {
         private bool[,] visitedCells;
-        public CellsEnum[,] field;
+        private CellsEnum[,] field;
         private int currRow = 0;
         private int currCol = 0;
         private int visited;
@@ -20,11 +20,24 @@
         public Labyrinth(int height, int width)
         {
             this.visitedCells = new bool[height, width];
-            this.field = new CellsEnum[height, width];
+            this.Field = new CellsEnum[height, width];
             this.visited = height * width;
             this.rowStack = new Stack<int>();
             this.colStack = new Stack<int>();
             this.random = new Random();
+        }
+
+        public CellsEnum[,] Field 
+        {
+            get 
+            {
+                return this.field;
+            }
+
+            private set
+            {
+                this.field = value;
+            }
         }
 
         private List<int[]> GetAvailableCells(int currentRow, int currentCol, bool[,] visitedCells)

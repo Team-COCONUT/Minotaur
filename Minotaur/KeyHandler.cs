@@ -1,6 +1,7 @@
 ﻿namespace Minotaur
 {
     using Minotaur.DrawEngines;
+    using Minotaur.GameSprites;
     using Minotaur.Interfaces;
     using System;
 
@@ -19,6 +20,11 @@
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo pressedkey = Console.ReadKey();
+                while (Console.KeyAvailable)
+                {
+                    Console.ReadKey(true);
+                }
+
                 if (pressedkey.Key.Equals(ConsoleKey.LeftArrow))
                 {
                     this.OnLeftArrowPressed(this, new EventArgs());
@@ -41,29 +47,29 @@
                 {
                     this.OnDownArrowPressed(this, new EventArgs());
                 }
-                while (Console.KeyAvailable)
-                {
-                    Console.ReadKey(true);
-                }
             }
         }
-        public void ImplementMove(ConsoleDrawEngine engine)
+
+        public void ImplementMove(Player player, Labyrinth labyrinth)
         {
             this.OnRightArrowPressed += (sender, eventInfo) =>
             {
-                engine.MovePlayer(Directions.Right);
+                player.Move(Directions.Right, labyrinth);
             };
+
             this.OnLeftArrowPressed+=(sender,eventInfo)=>
             {
-                engine.MovePlayer(Directions.Left);
+                player.Move(Directions.Left, labyrinth);
             };
+            
             this.OnUpArrowPressed+=(sender,eventInfo)=>
             {
-                engine.MovePlayer(Directions.Up);
+                player.Move(Directions.Up, labyrinth);
             };
+            
             this.OnDownArrowPressed += (sender, eventInfo) =>
             {
-                engine.MovePlayer(Directions.Down);
+                player.Move(Directions.Down, labyrinth);
             };
         }
     }

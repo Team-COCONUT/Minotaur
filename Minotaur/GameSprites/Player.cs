@@ -6,6 +6,7 @@
     public class Player : GameSprite
     {
         private ICollection<Item> inventory;
+        private int money = 0;
 
         public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory,int defensePoints, int playerSpeed)
             : base(position, healthPoints, attackPoints, defensePoints, playerSpeed)
@@ -25,54 +26,39 @@
                 inventory = value;
             }
         }
-        public void MoveUp()
-        {           
-            this.ChangePosition(this.Position.X, this.Position.Y-1);
-        }
-        public void MoveDown()
-        {
-            this.ChangePosition(this.Position.X, this.Position.Y+1);
-        }
-        public void MoveRight()
-        {
-            this.ChangePosition(this.Position.X+1, this.Position.Y);
-        }
-        public void MoveLeft()
-        {
-            this.ChangePosition(this.Position.X-1, this.Position.Y);
-        }
-        //public void Move(ConsoleKey key, CellState[,] labyrinthMatrix)
-        //{
-        //    Coords newPosition = this.Position;
 
-        //    if(key == ConsoleKey.UpArrow || key == ConsoleKey.W)
-        //    {
-        //        newPosition.Y--;
-        //    }
-        //    else if (key == ConsoleKey.DownArrow || key == ConsoleKey.S)
-        //    {
-        //        newPosition.Y++;
-        //    }
-        //    else if (key == ConsoleKey.LeftArrow || key == ConsoleKey.A)
-        //    {
-        //        newPosition.X--;
-        //    }
-        //    else if (key == ConsoleKey.RightArrow || key == ConsoleKey.D)
-        //    {
-        //        newPosition.X++;
-        //    }
+        public void Move(Directions direction, Labyrinth labyrinth)
+        {
+            Coords newPosition = this.Position;
 
-        //    // checking position
-        //    bool isXInMatrix = newPosition.X >= 0 && newPosition.X < labyrinthMatrix.GetLength(0);
-        //    bool isYInMatrix = newPosition.Y >= 0 && newPosition.Y < labyrinthMatrix.GetLength(1);
+            if (direction == Directions.Up)
+            {
+                newPosition.Y--;
+            }
+            else if (direction == Directions.Down)
+            {
+                newPosition.Y++;
+            }
+            else if (direction == Directions.Left)
+            {
+                newPosition.X--;
+            }
+            else if (direction == Directions.Right)
+            {
+                newPosition.X++;
+            }
 
-        //    if (isXInMatrix && isYInMatrix)
-        //    {
-        //        //if(labyrinthMatrix[newPosition.Y, newPosition.X].HasFlag(CellState.Visited))
-        //        //{
-        //            this.ChangePosition(newPosition.X, newPosition.Y);
-        //        //}
-        //    }
-        //}
+            // checking position
+            bool isXInMatrix = newPosition.X >= 0 && newPosition.X < labyrinth.Field.GetLength(1);
+            bool isYInMatrix = newPosition.Y >= 0 && newPosition.Y < labyrinth.Field.GetLength(0);
+
+            if (isXInMatrix && isYInMatrix)
+            {
+                if(labyrinth.Field[newPosition.Y, newPosition.X] == CellsEnum.Empty)
+                {
+                    this.ChangePosition(newPosition.X, newPosition.Y);
+                }
+            }
+        }
     }
 }
