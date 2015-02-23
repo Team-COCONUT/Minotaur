@@ -47,6 +47,11 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Directions.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="GameSprites\Mobs\Bat.cs" />
+    <Compile Include="GameSprites\Mobs\Gorgo.cs" />
+    <Compile Include="GameSprites\Mobs\Harpy.cs" />
+    <Compile Include="GameSprites\Mobs\Hydra.cs" />
+    <Compile Include="GameSprites\Mobs\Skeleton.cs" />
     <Compile Include="Items\BattleAxe.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />
@@ -59,8 +64,8 @@
     <Compile Include="Items\Shield.cs" />
     <Compile Include="KeyHandler.cs" />
     <Compile Include="Labyrinth.cs" />
-    <Compile Include="GameSprites\Minotaur.cs" />
-    <Compile Include="GameSprites\Mob.cs" />
+    <Compile Include="GameSprites\Mobs\Minotaur.cs" />
+    <Compile Include="GameSprites\Mobs\Mob.cs" />
     <Compile Include="GameSprites\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
