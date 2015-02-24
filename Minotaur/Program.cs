@@ -21,10 +21,37 @@
 
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
             var minotaur = new Minotaur(new Coords(55, 28), 99, 3, 3, 3);
-            var potion = new HealthPotion(new Coords(10, 20), 20);
+            var potions = new List<HealthPotion>
+            {
+                new HealthPotion(new Coords(10, 20), 20),
+                new HealthPotion(new Coords(20, 23), 20),
+                new HealthPotion(new Coords(5, 9), 20),
+                new HealthPotion(new Coords(40, 10), 20),
+                new HealthPotion(new Coords(50, 13), 20),
+                new HealthPotion(new Coords(55, 20), 20),
+                new HealthPotion(new Coords(50, 5), 20),
+                new HealthPotion(new Coords(13, 23), 20)
+            };
+            var mobs = new List<Mob>
+            {
+                new Bat(new Coords(11, 20)),
+                new Gorgo(new Coords(5, 5)),
+                new Skeleton(new Coords(50, 10)),
+                new Hydra(new Coords(40, 20)),
+                new Harpy(new Coords(15, 23))
+            };
+            var items = new List<Item>
+            {
+                new BattleAxe(),
+                new BootsOfSwiftness(),
+                new Shield(),
+                new BattleAxe(),
+                new BootsOfSwiftness(),
+                new Shield()
+            };
             var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur, potion);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur, potions , mobs);
             engine.Run();
         }
     }

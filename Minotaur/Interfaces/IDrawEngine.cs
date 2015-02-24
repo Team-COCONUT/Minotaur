@@ -1,4 +1,6 @@
-﻿namespace Minotaur.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Minotaur.Interfaces
 {
     using System;
 
@@ -12,6 +14,8 @@
         void DisplayText(int x, int y, string text, ConsoleColor color);
         void DisplayPlayer(Player player);
         void DisplayMinotaur(Minotaur minotaur);
-        void DisplayHealthPotion(HealthPotion potion);
+        void DisplayHealthPotion(List<HealthPotion> potions);
+        void DisplayMobs(List<Mob> mobs);
+        void DisplayItems(List<Item> items);
     }
 }

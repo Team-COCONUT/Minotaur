@@ -1,6 +1,7 @@
 ﻿namespace Minotaur
 {
     using System;
+    using System.Collections.Generic;
 
     using GameSprites;
     using GameSprites.Mobs;
@@ -14,21 +15,24 @@
         private Player player; 
         private KeyHandler keyhandler;
         private Minotaur minotaur;
-        private HealthPotion potion;
+        private List<HealthPotion> potions;
+        private List<Mob> mobs; 
 
         public GameEngine(IDrawEngine drawEngine, 
             Labyrinth labyrinth, 
             Player player, 
             KeyHandler handler, 
             Minotaur minotaur, 
-            HealthPotion potion)
+            List<HealthPotion> potions, 
+            List<Mob> mobs)
         {
             this.DrawEngine = drawEngine;
             this.Labyrinth = labyrinth;
             this.Player = player;
             this.KeyHandler = handler;
             this.minotaur = minotaur;
-            this.Potion = potion;
+            this.Potions = potions;
+            this.Mobs = mobs;
         }
 
         public Labyrinth Labyrinth
@@ -88,10 +92,16 @@
             }
         }
 
-        public HealthPotion Potion
+        public List<HealthPotion> Potions
         {
-            get { return potion; }
-            set { potion = value; }
+            get { return potions; }
+            set { potions = value; }
+        }
+
+        public List<Mob> Mobs
+        {
+            get { return mobs; }
+            set { mobs = value; }
         }
 
         public void Run()
@@ -105,7 +115,8 @@
             {
                 this.DrawEngine.DisplayPlayer(this.Player);
                 this.DrawEngine.DisplayMinotaur(this.minotaur);
-                this.DrawEngine.DisplayHealthPotion(this.Potion);
+                this.DrawEngine.DisplayHealthPotion(this.Potions);
+                this.DrawEngine.DisplayMobs(this.Mobs);
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;

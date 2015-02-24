@@ -1,6 +1,7 @@
 ﻿namespace Minotaur.DrawEngines
 {
     using System;
+    using System.Collections.Generic;
     using System.Text;
 
     using Enumerations;
@@ -49,9 +50,58 @@
             this.PrintStringAtPosition(minotaur.Position.X, minotaur.Position.Y, "V", ConsoleColor.Red);
         }
 
-        public void DisplayHealthPotion(HealthPotion potion)
+        public void DisplayHealthPotion(List<HealthPotion> potions)
         {
-            this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, "o", ConsoleColor.Red);
+            foreach (var potion in potions)
+            {
+                this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, "o", ConsoleColor.Green);
+            }
+        }
+
+        public void DisplayMobs(List<Mob> mobs)
+        {
+            foreach (var mob in mobs)
+            {
+                if (mob is Skeleton)
+                {
+                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "s", ConsoleColor.Yellow);
+                }
+                if (mob is Bat)
+                {
+                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "x", ConsoleColor.Yellow);
+                }
+                if (mob is Gorgo)
+                {
+                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "q", ConsoleColor.Yellow);
+                }
+                if (mob is Harpy)
+                {
+                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "w", ConsoleColor.Yellow);
+                }
+                if (mob is Hydra)
+                {
+                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "r", ConsoleColor.Yellow);
+                }        
+            }
+        }
+
+        public void DisplayItems(List<Item> items)
+        {
+            foreach (var item in items)
+            {
+                //if (item is BattleAxe)
+                //{
+                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "1", ConsoleColor.Magenta);
+                //}
+                //if (item is Shield)
+                //{
+                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "2", ConsoleColor.Magenta);
+                //}
+                //if (item is BootsOfSwiftness)
+                //{
+                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "3", ConsoleColor.Magenta);
+                //}
+            }
         }
 
         private void PrintStringAtPosition(int x, int y, string text, ConsoleColor color)
