@@ -8,6 +8,7 @@
     using GameSprites.Mobs;
     using Interfaces;
     using Items;
+    using Minotaur.Generators;
 
     public class Program
     {
@@ -20,6 +21,13 @@
             var maze = new Labyrinth(30, 80);
 
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
+
+            // TODO: find way to generate coords for both potions and mobs
+            //var mobPositions = ValidPositionsGenerator.Generate(maze, 5);
+            //for (int i = 1; i < mobs.Count; i++)
+            //{
+            //    mobs[i].Position = mobPositions[i - 1];
+            //}
 
             var potions = new List<HealthPotion>
             {

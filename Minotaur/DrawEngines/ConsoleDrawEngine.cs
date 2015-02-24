@@ -42,7 +42,7 @@
 
         public void DisplayPlayer(Player player)
         {
-            this.PrintStringAtPosition(player.Position.X, player.Position.Y, "#", ConsoleColor.Blue);
+            this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.Blue);
         }
 
         public void DisplayMinotaur(Minotaur minotaur)

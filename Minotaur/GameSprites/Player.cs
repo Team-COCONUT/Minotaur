@@ -6,8 +6,9 @@
 
     using Enumerations;
     using Items;
+    using Minotaur.Interfaces;
 
-    public class Player : GameSprite
+    public class Player : GameSprite, IMovable
     {
         private ICollection<Item> inventory;
         private int money = 0;

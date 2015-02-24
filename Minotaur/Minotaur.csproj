@@ -53,6 +53,9 @@
     <Compile Include="GameSprites\Mobs\Harpy.cs" />
     <Compile Include="GameSprites\Mobs\Hydra.cs" />
     <Compile Include="GameSprites\Mobs\Skeleton.cs" />
+    <Compile Include="Generators\ValidPositionsGenerator.cs" />
+    <Compile Include="Interfaces\IGenerator.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Items\BattleAxe.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />

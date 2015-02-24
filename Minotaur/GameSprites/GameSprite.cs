@@ -85,7 +85,7 @@
                 return this.position;
             }
 
-            protected set
+            set
             {
                 this.position = value;
             }
