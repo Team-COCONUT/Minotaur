@@ -5,7 +5,9 @@
 
     using Enumerations;
     using GameSprites;
+    using GameSprites.Mobs;
     using Interfaces;
+    using Items;
 
     public class ConsoleDrawEngine : IDrawEngine
     {
@@ -15,13 +17,13 @@
 
         public void DisplayLabyrinth(Labyrinth labyrinth)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
-            for (int row = 0; row < labyrinth.Field.GetLength(0); row++)
+            for (var row = 0; row < labyrinth.Field.GetLength(0); row++)
             {
-                for (int col = 0; col < labyrinth.Field.GetLength(1); col++)
+                for (var col = 0; col < labyrinth.Field.GetLength(1); col++)
                 {
-                    char charToDraw = '#';
+                    var charToDraw = '#';
                     if (labyrinth.Field[row, col] != CellsEnum.Wall)
                     {
                         charToDraw = ' ';
@@ -45,6 +47,16 @@
         {
             this.PrintStringAtPosition(player.Position.X, player.Position.Y, "#", ConsoleColor.Blue);
         }
+
+        public void DisplayMinotaur(Minotaur minotaur)
+        {
+            this.PrintStringAtPosition(minotaur.Position.X, minotaur.Position.Y, "V", ConsoleColor.Red);
+        }
+
+        //public void DisplayHealthPotion(HealthPotion potion)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void PrintStringAtPosition(int x, int y, string text, ConsoleColor color)
         {

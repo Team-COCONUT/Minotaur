@@ -3,7 +3,9 @@
     using System;
 
     using GameSprites;
+    using GameSprites.Mobs;
     using Interfaces;
+    using Items;
 
     public class GameEngine
     {
@@ -11,13 +13,15 @@
         private Labyrinth labyrinth;
         private Player player; 
         private KeyHandler keyhandler;
+        private Minotaur minataur;
 
-        public GameEngine(IDrawEngine drawEngine, Labyrinth labyrinth, Player player, KeyHandler handler)
+        public GameEngine(IDrawEngine drawEngine, Labyrinth labyrinth, Player player, KeyHandler handler, Minotaur manataur)
         {
             this.DrawEngine = drawEngine;
             this.Labyrinth = labyrinth;
             this.Player = player;
             this.KeyHandler = handler;
+            this.minataur = manataur;
         }
 
         public Labyrinth Labyrinth
@@ -81,12 +85,13 @@
         {
             this.Labyrinth.Generate();
             this.DrawEngine.DisplayLabyrinth(this.Labyrinth);
-            Coords prevoiusPosition = new Coords(0, 0);
+            var prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
 
             while (true)
             {
                 this.DrawEngine.DisplayPlayer(this.Player);
+                this.DrawEngine.DisplayMinotaur(this.minataur);
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;

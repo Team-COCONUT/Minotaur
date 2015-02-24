@@ -1,13 +1,13 @@
-﻿using Minotaur.Items;
-
-namespace Minotaur
+﻿namespace Minotaur
 {
     using System;
     using System.Collections.Generic;
 
     using DrawEngines;
     using GameSprites;
+    using GameSprites.Mobs;
     using Interfaces;
+    using Items;
 
     public class Program
     {
@@ -19,10 +19,11 @@ namespace Minotaur
             Console.SetBufferSize(120, 49);
             var maze = new Labyrinth(30, 80);
 
-            Player player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
-            KeyHandler keyhanlder = new KeyHandler();
+            var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
+            var minotaur = new Minotaur(new Coords(55, 28), 99, 3, 3, 3);
+            var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            GameEngine engine = new GameEngine(drawEngine, maze, player, keyhanlder);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur);
             engine.Run();
         }
     }

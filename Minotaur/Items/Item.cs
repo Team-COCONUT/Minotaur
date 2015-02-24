@@ -10,6 +10,7 @@
             this.DefenseEffect = defenseEffect;
             this.AttackEffect = attackEffect;
         }     
+
         public int SpeedEffect
         {
             get;

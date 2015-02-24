@@ -2,6 +2,8 @@
 {
     using System;
 
+    using Enumerations;
+
     public abstract class GameSprite
     {
         private Coords position;
@@ -95,6 +97,20 @@
         public int Attack()
         {
             return this.random.Next(50, this.AttackPoints + 1);
+        }
+
+        public virtual void CheckPosition(Coords currPosition, Labyrinth labyrinth)
+        {
+            var isXInMatrix = currPosition.X >= 0 && currPosition.X < labyrinth.Field.GetLength(1);
+            var isYInMatrix = currPosition.Y >= 0 && currPosition.Y < labyrinth.Field.GetLength(0);
+
+            if (isXInMatrix && isYInMatrix)
+            {
+                if (labyrinth.Field[currPosition.Y, currPosition.X] == CellsEnum.Empty)
+                {
+                    this.ChangePosition(currPosition.X, currPosition.Y);
+                }
+            }
         }
     }
 }

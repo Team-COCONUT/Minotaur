@@ -1,10 +1,9 @@
-﻿using Minotaur.Items;
-
-namespace Minotaur.GameSprites
+﻿namespace Minotaur.GameSprites
 {
     using System.Collections.Generic;
 
     using Enumerations;
+    using Items;
 
     public class Player : GameSprite
     {
@@ -32,36 +31,25 @@ namespace Minotaur.GameSprites
 
         public void Move(Directions direction, Labyrinth labyrinth)
         {
-            Coords newPosition = this.Position;
+            var newPosition = this.Position;
 
-            if (direction == Directions.Up)
+            switch (direction)
             {
-                newPosition.Y--;
-            }
-            else if (direction == Directions.Down)
-            {
-                newPosition.Y++;
-            }
-            else if (direction == Directions.Left)
-            {
-                newPosition.X--;
-            }
-            else if (direction == Directions.Right)
-            {
-                newPosition.X++;
+                case Directions.Up:
+                    newPosition.Y--;
+                    break;
+                case Directions.Down:
+                    newPosition.Y++;
+                    break;
+                case Directions.Left:
+                    newPosition.X--;
+                    break;
+                case Directions.Right:
+                    newPosition.X++;
+                    break;
             }
 
-            // checking position
-            bool isXInMatrix = newPosition.X >= 0 && newPosition.X < labyrinth.Field.GetLength(1);
-            bool isYInMatrix = newPosition.Y >= 0 && newPosition.Y < labyrinth.Field.GetLength(0);
-
-            if (isXInMatrix && isYInMatrix)
-            {
-                if (labyrinth.Field[newPosition.Y, newPosition.X] == CellsEnum.Empty)
-                {
-                    this.ChangePosition(newPosition.X, newPosition.Y);
-                }
-            }
+            CheckPosition(newPosition, labyrinth);
         }
     }
 }

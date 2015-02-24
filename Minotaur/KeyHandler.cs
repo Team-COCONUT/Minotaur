@@ -19,7 +19,7 @@
         {
             if (Console.KeyAvailable)
             {
-                ConsoleKeyInfo pressedkey = Console.ReadKey();
+                var pressedkey = Console.ReadKey();
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(true);
