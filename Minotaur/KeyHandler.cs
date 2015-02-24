@@ -1,9 +1,9 @@
 ﻿namespace Minotaur
 {
-    using Minotaur.DrawEngines;
-    using Minotaur.GameSprites;
-    using Minotaur.Interfaces;
     using System;
+
+    using Enumerations;
+    using GameSprites;
 
     public  class KeyHandler
     {
@@ -57,12 +57,12 @@
                 player.Move(Directions.Right, labyrinth);
             };
 
-            this.OnLeftArrowPressed+=(sender,eventInfo)=>
+            this.OnLeftArrowPressed += (sender, eventInfo) =>
             {
                 player.Move(Directions.Left, labyrinth);
             };
             
-            this.OnUpArrowPressed+=(sender,eventInfo)=>
+            this.OnUpArrowPressed += (sender, eventInfo) =>
             {
                 player.Move(Directions.Up, labyrinth);
             };

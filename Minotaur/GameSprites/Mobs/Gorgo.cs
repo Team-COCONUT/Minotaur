@@ -7,8 +7,11 @@
         private const int Defense = 70;
         private const int MobSpeed = 0;
 
-        public Gorgo(Coords position, int healthPoints = Health, int attackPoints = Attack,
-            int defensePoints = Defense, int mobSpeed = MobSpeed)
+        public Gorgo(Coords position, 
+                     int healthPoints = Health, 
+                     int attackPoints = Attack,
+                     int defensePoints = Defense, 
+                     int mobSpeed = MobSpeed)
             : base(position, healthPoints, attackPoints, defensePoints, mobSpeed)
         {
         }

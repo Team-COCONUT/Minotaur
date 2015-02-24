@@ -2,6 +2,6 @@
 {
     public interface IHealthPotion
     {
-         int HealthEffect { get;}        
+         int HealthEffect { get; }
     }
 }

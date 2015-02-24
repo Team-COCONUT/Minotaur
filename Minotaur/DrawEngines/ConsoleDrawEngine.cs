@@ -3,9 +3,9 @@
     using System;
     using System.Text;
 
-    using Minotaur;
-    using Minotaur.Interfaces;
-    using Minotaur.GameSprites;
+    using Enumerations;
+    using GameSprites;
+    using Interfaces;
 
     public class ConsoleDrawEngine : IDrawEngine
     {
@@ -16,6 +16,7 @@
         public void DisplayLabyrinth(Labyrinth labyrinth)
         {
             StringBuilder sb = new StringBuilder();
+
             for (int row = 0; row < labyrinth.Field.GetLength(0); row++)
             {
                 for (int col = 0; col < labyrinth.Field.GetLength(1); col++)

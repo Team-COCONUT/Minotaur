@@ -42,10 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CellsEnum.cs" />
+    <Compile Include="Enumerations\CellsEnum.cs" />
     <Compile Include="DrawEngines\ConsoleDrawEngine.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Directions.cs" />
+    <Compile Include="Enumerations\Directions.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="GameSprites\Mobs\Bat.cs" />
     <Compile Include="GameSprites\Mobs\Gorgo.cs" />
@@ -56,10 +56,10 @@
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />
     <Compile Include="Items\BootsOfSwiftness.cs" />
-    <Compile Include="HealthPotion.cs" />
+    <Compile Include="Items\HealthPotion.cs" />
     <Compile Include="Interfaces\IDrawEngine.cs" />
     <Compile Include="Interfaces\IEquippable.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="Interfaces\IHealthPotion.cs" />
     <Compile Include="Items\Shield.cs" />
     <Compile Include="KeyHandler.cs" />

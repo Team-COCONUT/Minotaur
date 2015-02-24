@@ -1,8 +1,8 @@
-﻿using Minotaur.Interfaces;
-
-namespace Minotaur
+﻿namespace Minotaur.Items
 {
-    public abstract class Item :IEquippable
+    using Interfaces;
+
+    public abstract class Item : IEquippable
     {    
         protected Item(int speedEffect, int defenseEffect, int attackEffect)
         {

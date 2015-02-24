@@ -1,17 +1,17 @@
-﻿namespace Minotaur
+﻿using Minotaur.Items;
+
+namespace Minotaur
 {
     using System;
     using System.Collections.Generic;
 
-    using Minotaur.DrawEngines;
-    using Minotaur.Interfaces;
-    using Minotaur.Items;
-    using Minotaur.GameSprites;
-    using System.Threading;
+    using DrawEngines;
+    using GameSprites;
+    using Interfaces;
 
-    class Program
+    public class Program
     {
-        static void Main()
+        public static void Main()
         {
             Console.BufferHeight = Console.WindowHeight = 49;
             Console.BufferWidth = Console.WindowWidth = 120;

@@ -1,14 +1,18 @@
-﻿namespace Minotaur
+﻿namespace Minotaur.Items
 {
-    using Minotaur.Interfaces;
     using System;
-    public class HealthPotion: IHealthPotion
+
+    using Interfaces;
+
+    public class HealthPotion : IHealthPotion
     {
         private int healthEffect;
+
         public HealthPotion(int healthEffect)
         {
             this.HealthEffect = healthEffect;
         }
+
         public int HealthEffect
         {
             get

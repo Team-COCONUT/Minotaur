@@ -1,14 +1,17 @@
-﻿namespace Minotaur.GameSprites
+﻿using Minotaur.Items;
+
+namespace Minotaur.GameSprites
 {
-    using System;
     using System.Collections.Generic;
+
+    using Enumerations;
 
     public class Player : GameSprite
     {
         private ICollection<Item> inventory;
         private int money = 0;
 
-        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory,int defensePoints, int playerSpeed)
+        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory, int defensePoints, int playerSpeed)
             : base(position, healthPoints, attackPoints, defensePoints, playerSpeed)
         {
             this.Inventory = inventory;
@@ -54,7 +57,7 @@
 
             if (isXInMatrix && isYInMatrix)
             {
-                if(labyrinth.Field[newPosition.Y, newPosition.X] == CellsEnum.Empty)
+                if (labyrinth.Field[newPosition.Y, newPosition.X] == CellsEnum.Empty)
                 {
                     this.ChangePosition(newPosition.X, newPosition.Y);
                 }

@@ -1,12 +1,13 @@
 ﻿namespace Minotaur.Items
 {
-    class BattleAxe : Item
+    public class BattleAxe : Item
     {
-        private const int AXE_ATTACK = 5;
-        private const int AXE_DEFENSE = 3;
-        private const int SPEED = 0; 
+        private const int AxeAttack = 5;
+        private const int AxeDefense = 3;
+        private const int Speed = 0; 
+
         public BattleAxe()
-            : base(SPEED, AXE_DEFENSE, AXE_ATTACK)
+            : base(Speed, AxeDefense, AxeAttack)
         {
         }
     }

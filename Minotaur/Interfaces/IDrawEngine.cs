@@ -1,7 +1,8 @@
 ﻿namespace Minotaur.Interfaces
 {
-    using Minotaur.GameSprites;
     using System;
+
+    using GameSprites;
 
     public interface IDrawEngine
     {

@@ -2,9 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
+
+    using Enumerations;
 
     public class Labyrinth
     {
@@ -49,6 +48,7 @@
 
             int[][] directions = new int[][] { left, right, up, down };
             List<int[]> availableDirrections = new List<int[]>();
+
             foreach (var direction in directions)
             {
                 if (currentCol + direction[1] < visitedCells.GetLength(1) &&

@@ -1,22 +1,18 @@
-﻿using Minotaur.GameSprites;
-using Minotaur.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Minotaur
+﻿namespace Minotaur
 {
+    using System;
+
+    using GameSprites;
+    using Interfaces;
+
     public class GameEngine
     {
-
         private IDrawEngine drawEngine;
         private Labyrinth labyrinth;
         private Player player; 
         private KeyHandler keyhandler;
 
-        public GameEngine(IDrawEngine drawEngine, Labyrinth labyrinth, Player player,KeyHandler handler)
+        public GameEngine(IDrawEngine drawEngine, Labyrinth labyrinth, Player player, KeyHandler handler)
         {
             this.DrawEngine = drawEngine;
             this.Labyrinth = labyrinth;
@@ -36,7 +32,6 @@ namespace Minotaur
                 this.labyrinth = value;
             }
         }
-
 
         public Player Player
         {
@@ -64,7 +59,6 @@ namespace Minotaur
             }
         }
 
-
         public KeyHandler KeyHandler 
         {
             get
@@ -89,6 +83,7 @@ namespace Minotaur
             this.DrawEngine.DisplayLabyrinth(this.Labyrinth);
             Coords prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
+
             while (true)
             {
                 this.DrawEngine.DisplayPlayer(this.Player);
