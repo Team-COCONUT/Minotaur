@@ -88,6 +88,11 @@
             }
         }
 
+        public bool IsAlive()
+        {
+            return this.HealthPoints > 0;
+        }
+
         public void ChangePosition(int x, int y)
         {
             this.position.X = x;

@@ -29,6 +29,32 @@
             }
         }
 
+        public void AddToInventory(Item item)
+        {
+            this.Inventory.Add(item);
+            ApplyItemEffects(item);
+        }
+
+        public void RemoveFromInventory(Item item)
+        {
+            this.Inventory.Add(item);
+            RemoveItemEffects(item);
+        }
+
+        public void ApplyItemEffects(Item item)
+        {
+            this.DefensePoints += item.DefenseEffect;
+            this.AttackPoints += item.AttackEffect;
+            this.SpeedPoints += item.SpeedEffect;
+        }
+
+        public void RemoveItemEffects(Item item)
+        {
+            this.DefensePoints -= item.DefenseEffect;
+            this.AttackPoints -= item.AttackEffect;
+            this.SpeedPoints -= item.SpeedEffect;
+        }
+
         public void Move(Directions direction, Labyrinth labyrinth)
         {
             var newPosition = this.Position;
