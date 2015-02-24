@@ -62,26 +62,28 @@
         {
             foreach (var mob in mobs)
             {
-                if (mob is Skeleton)
-                {
-                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "s", ConsoleColor.Yellow);
-                }
-                if (mob is Bat)
-                {
-                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "x", ConsoleColor.Yellow);
-                }
-                if (mob is Gorgo)
-                {
-                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "q", ConsoleColor.Yellow);
-                }
-                if (mob is Harpy)
-                {
-                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "w", ConsoleColor.Yellow);
-                }
-                if (mob is Hydra)
-                {
-                    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "r", ConsoleColor.Yellow);
-                }        
+                this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, mob.DisplayChar.ToString(), ConsoleColor.Yellow);
+
+                //if (mob is Skeleton)
+                //{
+                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "s", ConsoleColor.Yellow);
+                //}
+                //if (mob is Bat)
+                //{
+                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "x", ConsoleColor.Yellow);
+                //}
+                //if (mob is Gorgo)
+                //{
+                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "q", ConsoleColor.Yellow);
+                //}
+                //if (mob is Harpy)
+                //{
+                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "w", ConsoleColor.Yellow);
+                //}
+                //if (mob is Hydra)
+                //{
+                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "r", ConsoleColor.Yellow);
+                //}        
             }
         }
 

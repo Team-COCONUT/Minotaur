@@ -11,9 +11,10 @@
     {
         private ICollection<Item> inventory;
         private int money = 0;
+        private const char Char = (char)2;
 
         public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory, int defensePoints, int playerSpeed)
-            : base(position, healthPoints, attackPoints, defensePoints, playerSpeed)
+            : base(position, healthPoints, attackPoints, defensePoints, playerSpeed, Char)
         {
             this.Inventory = inventory;
         }
@@ -39,7 +40,7 @@
 
         public void RemoveFromInventory(Item item)
         {
-            this.Inventory.Add(item);
+            this.Inventory.Remove(item);
             RemoveItemEffects(item);
         }
 

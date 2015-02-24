@@ -2,8 +2,10 @@
 {
     public class Minotaur : Mob
     {
+        private const char Char = 'V';
+     
         public Minotaur(Coords position, int healthPoints, int attackPoints, int defensePoints, int minotaurSpeed)
-            : base(position, healthPoints, attackPoints, defensePoints, minotaurSpeed)
+            : base(position, healthPoints, attackPoints, defensePoints, minotaurSpeed, Char)
         {
         }
     }

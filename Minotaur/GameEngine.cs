@@ -14,15 +14,13 @@
         private Labyrinth labyrinth;
         private Player player; 
         private KeyHandler keyhandler;
-        private Minotaur minotaur;
         private List<HealthPotion> potions;
         private List<Mob> mobs; 
 
         public GameEngine(IDrawEngine drawEngine, 
             Labyrinth labyrinth, 
             Player player, 
-            KeyHandler handler, 
-            Minotaur minotaur, 
+            KeyHandler handler,
             List<HealthPotion> potions, 
             List<Mob> mobs)
         {
@@ -30,7 +28,6 @@
             this.Labyrinth = labyrinth;
             this.Player = player;
             this.KeyHandler = handler;
-            this.minotaur = minotaur;
             this.Potions = potions;
             this.Mobs = mobs;
         }
@@ -113,8 +110,8 @@
 
             while (true)
             {
+                CollisionChecker.Check(this.Player, this.Potions, this.Mobs);
                 this.DrawEngine.DisplayPlayer(this.Player);
-                this.DrawEngine.DisplayMinotaur(this.minotaur);
                 this.DrawEngine.DisplayHealthPotion(this.Potions);
                 this.DrawEngine.DisplayMobs(this.Mobs);
                 System.Threading.Thread.Sleep(200);

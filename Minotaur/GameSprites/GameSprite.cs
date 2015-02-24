@@ -13,15 +13,18 @@
         private int speed;
         private Random random;
 
-        public GameSprite(Coords position, int healthPoints, int attackPoints, int defensePoints, int speed)
+        public GameSprite(Coords position, int healthPoints, int attackPoints, int defensePoints, int speed, char displayChar)
         {
             this.Position = position;
             this.HealthPoints = healthPoints;
             this.AttackPoints = attackPoints;
             this.DefensePoints = defensePoints;
             this.SpeedPoints = speed;
+            this.DisplayChar = displayChar;
             this.random = new Random();
         }
+
+        public char DisplayChar { get; set; }
 
         public int HealthPoints
         {

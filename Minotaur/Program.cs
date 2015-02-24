@@ -20,7 +20,7 @@
             var maze = new Labyrinth(30, 80);
 
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
-            var minotaur = new Minotaur(new Coords(55, 28), 99, 3, 3, 3);
+
             var potions = new List<HealthPotion>
             {
                 new HealthPotion(new Coords(10, 20), 20),
@@ -34,6 +34,7 @@
             };
             var mobs = new List<Mob>
             {
+                new Minotaur(new Coords(55, 28), 99, 3, 3, 3),
                 new Bat(new Coords(11, 20)),
                 new Gorgo(new Coords(5, 5)),
                 new Skeleton(new Coords(50, 10)),
@@ -51,7 +52,7 @@
             };
             var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur, potions , mobs);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions , mobs);
             engine.Run();
         }
     }
