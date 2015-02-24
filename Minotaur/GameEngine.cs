@@ -13,15 +13,22 @@
         private Labyrinth labyrinth;
         private Player player; 
         private KeyHandler keyhandler;
-        private Minotaur minataur;
+        private Minotaur minotaur;
+        private HealthPotion potion;
 
-        public GameEngine(IDrawEngine drawEngine, Labyrinth labyrinth, Player player, KeyHandler handler, Minotaur manataur)
+        public GameEngine(IDrawEngine drawEngine, 
+            Labyrinth labyrinth, 
+            Player player, 
+            KeyHandler handler, 
+            Minotaur minotaur, 
+            HealthPotion potion)
         {
             this.DrawEngine = drawEngine;
             this.Labyrinth = labyrinth;
             this.Player = player;
             this.KeyHandler = handler;
-            this.minataur = manataur;
+            this.minotaur = minotaur;
+            this.Potion = potion;
         }
 
         public Labyrinth Labyrinth
@@ -81,6 +88,12 @@
             }
         }
 
+        public HealthPotion Potion
+        {
+            get { return potion; }
+            set { potion = value; }
+        }
+
         public void Run()
         {
             this.Labyrinth.Generate();
@@ -91,7 +104,8 @@
             while (true)
             {
                 this.DrawEngine.DisplayPlayer(this.Player);
-                this.DrawEngine.DisplayMinotaur(this.minataur);
+                this.DrawEngine.DisplayMinotaur(this.minotaur);
+                this.DrawEngine.DisplayHealthPotion(this.Potion);
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;

@@ -1,4 +1,6 @@
-﻿namespace Minotaur.Items
+﻿using System;
+
+namespace Minotaur.Items
 {
     using Interfaces;
 
@@ -27,6 +29,12 @@
         {
             get;
             protected set;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("attack: {0}, defense: {1}, speed: {2}",
+                this.AttackEffect, this.DefenseEffect, this.SpeedEffect);
         }
     }
 }

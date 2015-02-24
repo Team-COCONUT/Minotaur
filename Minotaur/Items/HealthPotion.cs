@@ -6,11 +6,13 @@
 
     public class HealthPotion : IHealthPotion
     {
+        private Coords position;
         private int healthEffect;
 
-        public HealthPotion(int healthEffect)
+        public HealthPotion(Coords position, int healthEffect)
         {
             this.HealthEffect = healthEffect;
+            this.Position = position;
         }
 
         public int HealthEffect
@@ -21,13 +23,14 @@
             }
             private set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException("Health effect must be greter than zero !");
-                }
-
                 this.healthEffect = value;
             }
+        }
+
+        public Coords Position
+        {
+            get { return position; }
+            set { position = value; }
         }
     }
 }

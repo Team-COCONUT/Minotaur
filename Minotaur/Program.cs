@@ -21,9 +21,10 @@
 
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
             var minotaur = new Minotaur(new Coords(55, 28), 99, 3, 3, 3);
+            var potion = new HealthPotion(new Coords(10, 20), 20);
             var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, minotaur, potion);
             engine.Run();
         }
     }

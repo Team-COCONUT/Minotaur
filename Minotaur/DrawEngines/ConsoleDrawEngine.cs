@@ -11,10 +11,6 @@
 
     public class ConsoleDrawEngine : IDrawEngine
     {
-        public ConsoleDrawEngine()
-        {
-        }
-
         public void DisplayLabyrinth(Labyrinth labyrinth)
         {
             var sb = new StringBuilder();
@@ -53,10 +49,10 @@
             this.PrintStringAtPosition(minotaur.Position.X, minotaur.Position.Y, "V", ConsoleColor.Red);
         }
 
-        //public void DisplayHealthPotion(HealthPotion potion)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void DisplayHealthPotion(HealthPotion potion)
+        {
+            this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, "o", ConsoleColor.Red);
+        }
 
         private void PrintStringAtPosition(int x, int y, string text, ConsoleColor color)
         {

@@ -117,5 +117,11 @@
                 }
             }
         }
+
+        public override string ToString()
+        {
+            return String.Format("health: {0}, attack: {1}, defence: {2}, speed: {3}",
+                this.HealthPoints, this.AttackPoints, this.DefensePoints, this.SpeedPoints);
+        }
     }
 }

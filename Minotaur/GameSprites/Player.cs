@@ -1,6 +1,8 @@
 ﻿namespace Minotaur.GameSprites
 {
+    using System;
     using System.Collections.Generic;
+    using System.Text;
 
     using Enumerations;
     using Items;
@@ -55,6 +57,11 @@
             this.SpeedPoints -= item.SpeedEffect;
         }
 
+        public void ApplyHealthPotionEffect(HealthPotion potion)
+        {
+            this.HealthPoints += potion.HealthEffect;
+        }
+
         public void Move(Directions direction, Labyrinth labyrinth)
         {
             var newPosition = this.Position;
@@ -76,6 +83,18 @@
             }
 
             CheckPosition(newPosition, labyrinth);
+        }
+
+        public override string ToString()
+        {
+            var baseInfo = base.ToString();
+            var items = new StringBuilder();
+
+            foreach (var item in Inventory)
+            {
+                items.AppendLine(item.ToString());
+            }
+            return String.Format(baseInfo, items);
         }
     }
 }
