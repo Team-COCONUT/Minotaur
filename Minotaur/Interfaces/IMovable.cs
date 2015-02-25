@@ -1,6 +1,6 @@
 ﻿namespace Minotaur.Interfaces
 {
-    using Minotaur.Enumerations;
+    using Enumerations;
 
     public interface IMovable
     {

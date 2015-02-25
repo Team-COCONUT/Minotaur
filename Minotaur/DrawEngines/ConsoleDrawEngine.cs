@@ -62,28 +62,7 @@
         {
             foreach (var mob in mobs)
             {
-                this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, mob.DisplayChar.ToString(), ConsoleColor.Yellow);
-
-                //if (mob is Skeleton)
-                //{
-                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "s", ConsoleColor.Yellow);
-                //}
-                //if (mob is Bat)
-                //{
-                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "x", ConsoleColor.Yellow);
-                //}
-                //if (mob is Gorgo)
-                //{
-                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "q", ConsoleColor.Yellow);
-                //}
-                //if (mob is Harpy)
-                //{
-                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "w", ConsoleColor.Yellow);
-                //}
-                //if (mob is Hydra)
-                //{
-                //    this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, "r", ConsoleColor.Yellow);
-                //}        
+                this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, mob.DisplayChar.ToString(), ConsoleColor.Yellow);     
             }
         }
 
@@ -91,18 +70,7 @@
         {
             foreach (var item in items)
             {
-                //if (item is BattleAxe)
-                //{
-                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "1", ConsoleColor.Magenta);
-                //}
-                //if (item is Shield)
-                //{
-                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "2", ConsoleColor.Magenta);
-                //}
-                //if (item is BootsOfSwiftness)
-                //{
-                //    this.PrintStringAtPosition(item.Position.X, item.Position.Y, "3", ConsoleColor.Magenta);
-                //}
+                this.PrintStringAtPosition(item.Position.X, item.Position.Y, item.DisplayChar.ToString(), ConsoleColor.Magenta);
             }
         }
 

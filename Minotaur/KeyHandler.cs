@@ -52,25 +52,13 @@
 
         public void ImplementMove(Player player, Labyrinth labyrinth)
         {
-            this.OnRightArrowPressed += (sender, eventInfo) =>
-            {
-                player.Move(Directions.Right, labyrinth);
-            };
+            this.OnRightArrowPressed += (sender, eventInfo) => player.Move(Directions.Right, labyrinth);
 
-            this.OnLeftArrowPressed += (sender, eventInfo) =>
-            {
-                player.Move(Directions.Left, labyrinth);
-            };
+            this.OnLeftArrowPressed += (sender, eventInfo) => player.Move(Directions.Left, labyrinth);
             
-            this.OnUpArrowPressed += (sender, eventInfo) =>
-            {
-                player.Move(Directions.Up, labyrinth);
-            };
+            this.OnUpArrowPressed += (sender, eventInfo) => player.Move(Directions.Up, labyrinth);
             
-            this.OnDownArrowPressed += (sender, eventInfo) =>
-            {
-                player.Move(Directions.Down, labyrinth);
-            };
+            this.OnDownArrowPressed += (sender, eventInfo) => player.Move(Directions.Down, labyrinth);
         }
     }
 }

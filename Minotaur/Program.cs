@@ -40,6 +40,7 @@
                 new HealthPotion(new Coords(50, 5), 20),
                 new HealthPotion(new Coords(13, 23), 20)
             };
+
             var mobs = new List<Mob>
             {
                 new Minotaur(new Coords(55, 28), 99, 3, 3, 3),
@@ -49,18 +50,20 @@
                 new Hydra(new Coords(40, 20)),
                 new Harpy(new Coords(15, 23))
             };
+
             var items = new List<Item>
             {
-                new BattleAxe(),
-                new BootsOfSwiftness(),
-                new Shield(),
-                new BattleAxe(),
-                new BootsOfSwiftness(),
-                new Shield()
+                new BattleAxe(new Coords(2, 10)),
+                new BootsOfSwiftness(new Coords(20, 10)),
+                new Shield(new Coords(55, 15)),
+                new BattleAxe(new Coords(45, 2)),
+                new BootsOfSwiftness(new Coords(57, 20)),
+                new Shield(new Coords(10, 3))
             };
+
             var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions , mobs);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions , mobs , items);
             engine.Run();
         }
     }

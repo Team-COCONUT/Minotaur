@@ -1,17 +1,23 @@
-﻿using System;
-
-namespace Minotaur.Items
+﻿namespace Minotaur.Items
 {
+    using System;
+
     using Interfaces;
 
     public abstract class Item : IEquippable
-    {    
-        protected Item(int speedEffect, int defenseEffect, int attackEffect)
+    {
+        protected Item(Coords position, int attackEffect, int defenseEffect, int speedEffect, char displayChar)
         {
             this.SpeedEffect = speedEffect;
             this.DefenseEffect = defenseEffect;
             this.AttackEffect = attackEffect;
-        }     
+            this.DisplayChar = displayChar;
+            this.Position = position;
+        }
+
+        public char DisplayChar { get; private set; }
+
+        public Coords Position { get; private set; }
 
         public int SpeedEffect
         {

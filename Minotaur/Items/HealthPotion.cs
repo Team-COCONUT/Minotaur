@@ -8,8 +8,9 @@
     {
         private Coords position;
         private int healthEffect;
+        private const char Char = 'o';
 
-        public HealthPotion(Coords position, int healthEffect)
+        public HealthPotion(Coords position, int healthEffect, char displayChar = Char)
         {
             this.HealthEffect = healthEffect;
             this.Position = position;

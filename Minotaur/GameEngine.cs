@@ -15,14 +15,16 @@
         private Player player; 
         private KeyHandler keyhandler;
         private List<HealthPotion> potions;
-        private List<Mob> mobs; 
+        private List<Mob> mobs;
+        private List<Item> items; 
 
         public GameEngine(IDrawEngine drawEngine, 
             Labyrinth labyrinth, 
             Player player, 
             KeyHandler handler,
             List<HealthPotion> potions, 
-            List<Mob> mobs)
+            List<Mob> mobs, 
+            List<Item> items)
         {
             this.DrawEngine = drawEngine;
             this.Labyrinth = labyrinth;
@@ -30,6 +32,7 @@
             this.KeyHandler = handler;
             this.Potions = potions;
             this.Mobs = mobs;
+            this.Items = items;
         }
 
         public Labyrinth Labyrinth
@@ -101,6 +104,12 @@
             set { mobs = value; }
         }
 
+        public List<Item> Items
+        {
+            get { return items; }
+            set { items = value; }
+        }
+
         public void Run()
         {
             this.Labyrinth.Generate();
@@ -114,6 +123,7 @@
                 this.DrawEngine.DisplayPlayer(this.Player);
                 this.DrawEngine.DisplayHealthPotion(this.Potions);
                 this.DrawEngine.DisplayMobs(this.Mobs);
+                this.DrawEngine.DisplayItems(this.Items);
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;

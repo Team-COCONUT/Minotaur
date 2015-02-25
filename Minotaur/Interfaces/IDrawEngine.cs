@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Minotaur.Interfaces
+﻿namespace Minotaur.Interfaces
 {
     using System;
+    using System.Collections.Generic;
 
     using GameSprites;
     using GameSprites.Mobs;

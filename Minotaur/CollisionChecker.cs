@@ -3,9 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Minotaur.GameSprites;
-    using Minotaur.GameSprites.Mobs;
-    using Minotaur.Items;
+    using GameSprites;
+    using GameSprites.Mobs;
+    using Items;
     
     public static class CollisionChecker
     {

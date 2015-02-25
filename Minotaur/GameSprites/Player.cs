@@ -6,7 +6,7 @@
 
     using Enumerations;
     using Items;
-    using Minotaur.Interfaces;
+    using Interfaces;
 
     public class Player : GameSprite, IMovable
     {
