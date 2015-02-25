@@ -113,20 +113,22 @@
         public void Run()
         {
             this.Labyrinth.Generate();
-            this.DrawEngine.DisplayLabyrinth(this.Labyrinth);
+          
             var prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
 
             while (true)
             {
                 CollisionChecker.Check(this.Player, this.Potions, this.Mobs);
-                this.DrawEngine.DisplayPlayer(this.Player);
-                this.DrawEngine.DisplayHealthPotion(this.Potions);
-                this.DrawEngine.DisplayMobs(this.Mobs);
-                this.DrawEngine.DisplayItems(this.Items);
+                this.DrawEngine.DisplayPlayer(this.Player); 
                 System.Threading.Thread.Sleep(200);
                 prevoiusPosition.X = this.player.Position.X;
-                prevoiusPosition.Y = this.player.Position.Y;
+                prevoiusPosition.Y = this.player.Position.Y;              
+                this.DrawEngine.DisplayLabyrinth(this.Labyrinth,prevoiusPosition.X,prevoiusPosition.Y);
+                this.DrawEngine.DisplayHealthPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
+                this.DrawEngine.DisplayMobs(this.Mobs, prevoiusPosition.X, prevoiusPosition.Y);
+                this.DrawEngine.DisplayItems(this.Items, prevoiusPosition.X, prevoiusPosition.Y);
+                      
                 Console.SetCursorPosition(prevoiusPosition.X, prevoiusPosition.Y);
                 Console.Write("");
                 this.keyhandler.CheckKey();
