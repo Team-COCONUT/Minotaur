@@ -11,7 +11,7 @@
     
     public static class CollisionChecker
     {
-        public static void Check(Player player, ICollection<Potion> potions, ICollection<Mob> mobs, ICollection<Item> items)
+        public static void Check(Player player, ICollection<Potion> potions, ICollection<GameSprite> mobs, ICollection<Item> items)
         {
             Potion potion = potions.Where(p => p.Position.X == player.Position.X &&
                 p.Position.Y == player.Position.Y).FirstOrDefault();
@@ -27,12 +27,12 @@
                 return;
             }
 
-            Mob mob = mobs.Where(m => m.Position.X == player.Position.X &&
+            GameSprite mob = mobs.Where(m => m.Position.X == player.Position.X &&
                 m.Position.Y == player.Position.Y).FirstOrDefault();
 
             if (mob != null)
             {
-                string battleResult = BattleEngine.StartBattle(player, mob);
+                string battleResult = BattleEngine.StartBattle(player, mob, mobs);
             }
 
             Item item = items.Where(i => i.Position.X == player.Position.X &&

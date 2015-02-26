@@ -1,13 +1,14 @@
 ﻿namespace Minotaur
 {
     using System;
+    using System.Collections.Generic;
     using System.Text;
 
     using Minotaur.GameSprites;
 
     public static class BattleEngine
     {
-        public static string StartBattle(GameSprite player, GameSprite enemy)
+        public static string StartBattle(GameSprite player, GameSprite enemy, ICollection<GameSprite> enemies)
         {
             StringBuilder battleLog = new StringBuilder();
             int roundCounter = 1;
@@ -43,7 +44,18 @@
             }
 
             battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
+
+            if (!enemy.IsAlive())
+            {
+                RemoveEnemy(enemy, enemies);
+            }
+            
             return battleLog.ToString();
+        }
+
+        private static void RemoveEnemy(GameSprite enemy, ICollection<GameSprite> enemies)
+        {
+            enemies.Remove(enemy);
         }
     }
 }

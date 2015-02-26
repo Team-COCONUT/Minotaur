@@ -16,7 +16,7 @@
         private Player player;
         private KeyHandler keyhandler;
         private List<Potion> potions;
-        private List<Mob> mobs;
+        private ICollection<GameSprite> mobs;
         private List<Item> items;
 
         public GameEngine(IDrawEngine drawEngine,
@@ -24,7 +24,7 @@
             Player player,
             KeyHandler handler,
             List<Potion> potions,
-            List<Mob> mobs,
+            ICollection<GameSprite> mobs,
             List<Item> items)
         {
             this.DrawEngine = drawEngine;
@@ -99,16 +99,16 @@
             set { potions = value; }
         }
 
-        public List<Mob> Mobs
+        public ICollection<GameSprite> Mobs
         {
-            get { return mobs; }
-            set { mobs = value; }
+            get { return this.mobs; }
+            set { this.mobs = value; }
         }
 
         public List<Item> Items
         {
-            get { return items; }
-            set { items = value; }
+            get { return this.items; }
+            set { this.items = value; }
         }
 
         public void Run()
