@@ -6,11 +6,5 @@
             : base(position, healthPoints, attackPoints, defensePoints, mobSpeed, displayChar)
         {
         }
-
-        public override int Attack(GameSprite sprite)
-        {
-            var player = sprite as Player;
-            return this.HealthPoints -= player.AttackPoints - this.DefensePoints;
-        }
     }
 }

@@ -28,12 +28,12 @@
 
         public int HealthPoints
         {
-            get 
+            get
             {
-                return this.healthPoints; 
+                return this.healthPoints;
             }
 
-            set 
+            set
             {
                 this.healthPoints = value;
             }
@@ -41,20 +41,20 @@
 
         public int DefensePoints
         {
-            get 
+            get
             {
                 return this.defensePoints;
             }
 
-            set 
+            set
             {
                 this.defensePoints = value;
             }
         }
 
-        public int SpeedPoints 
+        public int SpeedPoints
         {
-            get 
+            get
             {
                 return this.speed;
             }
@@ -67,12 +67,12 @@
 
         public int AttackPoints
         {
-            get 
+            get
             {
                 return this.attackPoints;
             }
 
-            set 
+            set
             {
                 this.attackPoints = value;
             }
@@ -102,9 +102,14 @@
             this.position.Y = y;
         }
 
-        public virtual int Attack(GameSprite sprite)
+        public int Attack()
         {
-            return this.random.Next(50, this.AttackPoints + 1);
+            return (int)((this.random.Next(50, 101) / 100.0) * this.AttackPoints);
+        }
+
+        public int Defend()
+        {
+            return (int)((this.random.Next(1, 100) / 100.0) * this.DefensePoints);
         }
 
         public virtual void CheckPosition(Coords currPosition, Labyrinth labyrinth)

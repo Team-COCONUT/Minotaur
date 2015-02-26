@@ -13,18 +13,18 @@
     {
         private IDrawEngine drawEngine;
         private Labyrinth labyrinth;
-        private Player player; 
+        private Player player;
         private KeyHandler keyhandler;
         private List<Potion> potions;
         private List<Mob> mobs;
-        private List<Item> items; 
+        private List<Item> items;
 
-        public GameEngine(IDrawEngine drawEngine, 
-            Labyrinth labyrinth, 
-            Player player, 
+        public GameEngine(IDrawEngine drawEngine,
+            Labyrinth labyrinth,
+            Player player,
             KeyHandler handler,
-            List<Potion> potions, 
-            List<Mob> mobs, 
+            List<Potion> potions,
+            List<Mob> mobs,
             List<Item> items)
         {
             this.DrawEngine = drawEngine;
@@ -51,7 +51,7 @@
 
         public Player Player
         {
-            get 
+            get
             {
                 return this.player;
             }
@@ -68,14 +68,14 @@
             {
                 return this.drawEngine;
             }
-            
-            set 
+
+            set
             {
-                this.drawEngine = value; 
+                this.drawEngine = value;
             }
         }
 
-        public KeyHandler KeyHandler 
+        public KeyHandler KeyHandler
         {
             get
             {
@@ -112,7 +112,7 @@
         }
 
         public void Run()
-        { 
+        {
             var prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
 
@@ -120,9 +120,7 @@
 
             while (true)
             {
-                CollisionChecker.CheckPotionCollision(this.Player, this.Potions);
-                CollisionChecker.CheckMobCollision(this.Player, this.Mobs);
-                CollisionChecker.CheckItemCollision(this.Player, this.Items);
+                CollisionChecker.Check(this.Player, this.Potions, this.Mobs, this.Items);
                 this.DrawEngine.DisplayPlayer(this.Player);
 
                 prevoiusPosition.X = this.player.Position.X;

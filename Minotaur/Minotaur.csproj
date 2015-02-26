@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleEngine.cs" />
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Enumerations\CellsEnum.cs" />
     <Compile Include="DrawEngines\ConsoleDrawEngine.cs" />

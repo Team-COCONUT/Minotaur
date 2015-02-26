@@ -4,6 +4,6 @@
 
     public interface IGenerator
     {
-        IEnumerable<Coords> Generate(Labyrinth labyrinth, int positionsCount);
+        IList<Coords> Generate(Labyrinth labyrinth, int positionsCount);
     }
 }

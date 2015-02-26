@@ -16,17 +16,19 @@
         public static void Main()
         {
             Console.BufferHeight = Console.WindowHeight = 49;
-            Console.BufferWidth = Console.WindowWidth = 120;
-            Console.SetWindowSize(120, 49);
-            Console.SetBufferSize(120, 49);
+            Console.BufferWidth = Console.WindowWidth = 81;
+            Console.SetWindowSize(80, 49);
+            Console.SetBufferSize(80, 49);
 
-            var maze = new Labyrinth(30, 80);
+            Labyrinth maze = new Labyrinth(30, 80);
             maze.Generate();
 
-            var player = new Player(new Coords(1, 1), 99, 30, new List<Item>(), 3, 3);
-            var availablePositions = ValidPositionsGenerator.Generate(maze, 30);
+            Player player = new Player(new Coords(1, 1), 99, 50, new List<Item>(), 30, 3);
 
-            var potions = new List<Potion>
+            ValidPositionsGenerator positionGenerator = ValidPositionsGenerator.GetInstance;
+            IList<Coords> availablePositions = positionGenerator.Generate(maze, 30);
+
+            List<Potion> potions = new List<Potion>
             {
                 new HealthPotion(),
                 new DefensePotion(),
@@ -39,13 +41,13 @@
                 new AttackPotion(),
                 new HealthPotion()
             };
-            for (var potionCounter = 0; potionCounter < potions.Count; potionCounter++)
+            for (int potionCounter = 0; potionCounter < potions.Count; potionCounter++)
             {
                 potions[potionCounter].Position = availablePositions[potionCounter];
                 availablePositions.RemoveAt(potionCounter);
             }
 
-            var mobs = new List<Mob>
+            List<Mob> mobs = new List<Mob>
             {
                 new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 3, defensePoints: 3, minotaurSpeed: 3),
                 new Bat(),
@@ -58,13 +60,13 @@
                 new Skeleton(),
                 new Hydra()
             };
-            for (var mobCounter = 1; mobCounter < mobs.Count; mobCounter++)
+            for (int mobCounter = 1; mobCounter < mobs.Count; mobCounter++)
             {
                 mobs[mobCounter].Position = availablePositions[mobCounter];
                 availablePositions.RemoveAt(mobCounter);
             }
 
-            var items = new List<Item>
+            List<Item> items = new List<Item>
             {
                 new BattleAxe(),
                 new BootsOfSwiftness(),
@@ -73,15 +75,15 @@
                 new BootsOfSwiftness(),
                 new Shield()
             };
-            for (var itemCounter = 0; itemCounter < items.Count; itemCounter++)
+            for (int itemCounter = 0; itemCounter < items.Count; itemCounter++)
             {
                 items[itemCounter].Position = availablePositions[itemCounter];
                 availablePositions.RemoveAt(itemCounter);
             }
 
-            var keyhanlder = new KeyHandler();
+            KeyHandler keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions, mobs, items);
+            GameEngine engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions, mobs, items);
             engine.Run();
         }
     }
