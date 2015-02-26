@@ -17,7 +17,7 @@
 
         public char DisplayChar { get; private set; }
 
-        public Coords Position { get; private set; }
+        public Coords Position { get; set; }
 
         public int SpeedEffect
         {

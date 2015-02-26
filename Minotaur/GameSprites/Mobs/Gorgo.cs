@@ -6,7 +6,12 @@
         private const int DefaultAttack = 60;
         private const int DefaultDefense = 70;
         private const int MobSpeed = 0;
-        private const char Char = 'q';
+        private const char Char = 'g';
+
+        public Gorgo()
+            : this(position: new Coords(0, 0))
+        {
+        }
 
         public Gorgo(Coords position,
                      int healthPoints = DefaultHealth,

@@ -8,6 +8,11 @@
         private const int MobSpeed = 0;
         private const char Char = 's';
 
+        public Skeleton()
+            : this(position: new Coords(0, 0))
+        {
+        }
+
         public Skeleton(Coords position,
             int healthPoints = DefaultHealth,
             int attackPoints = DefaultAttack,

@@ -8,62 +8,70 @@
     using GameSprites.Mobs;
     using Interfaces;
     using Items;
-    using Minotaur.Generators;
+    using Generators;
 
     public class Program
     {
+        private const int PotionsCount = 10;
+        private const int PotionsHealth = 20;
+
         public static void Main()
         {
             Console.BufferHeight = Console.WindowHeight = 49;
             Console.BufferWidth = Console.WindowWidth = 120;
             Console.SetWindowSize(120, 49);
             Console.SetBufferSize(120, 49);
+
             var maze = new Labyrinth(30, 80);
+            maze.Generate();
 
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
+            var availablePositions = ValidPositionsGenerator.Generate(maze, 30);
 
-            // TODO: find way to generate coords for both potions and mobs
-            //var mobPositions = ValidPositionsGenerator.Generate(maze, 5);
-            //for (int i = 1; i < mobs.Count; i++)
-            //{
-            //    mobs[i].Position = mobPositions[i - 1];
-            //}
-
-            var potions = new List<HealthPotion>
+            List<HealthPotion> potions = new List<HealthPotion>();
+            for (int potionCounter = 0; potionCounter < PotionsCount; potionCounter++)
             {
-                new HealthPotion(new Coords(10, 20), 20),
-                new HealthPotion(new Coords(20, 23), 20),
-                new HealthPotion(new Coords(5, 9), 20),
-                new HealthPotion(new Coords(40, 10), 20),
-                new HealthPotion(new Coords(50, 13), 20),
-                new HealthPotion(new Coords(55, 20), 20),
-                new HealthPotion(new Coords(50, 5), 20),
-                new HealthPotion(new Coords(13, 23), 20)
-            };
+                potions.Add(new HealthPotion(availablePositions[potionCounter], PotionsHealth));
+                availablePositions.RemoveAt(potionCounter);
+            }
 
-            var mobs = new List<Mob>
+            List<Mob> mobs = new List<Mob>
             {
-                new Minotaur(new Coords(55, 28), 99, 3, 3, 3),
-                new Bat(new Coords(11, 20)),
-                new Gorgo(new Coords(5, 5)),
-                new Skeleton(new Coords(50, 10)),
-                new Hydra(new Coords(40, 20)),
-                new Harpy(new Coords(15, 23))
+                new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 3, defensePoints: 3, minotaurSpeed: 3),
+                new Bat(),
+                new Gorgo(),
+                new Skeleton(),
+                new Hydra(),
+                new Harpy(),
+                new Bat(),
+                new Gorgo(),
+                new Skeleton(),
+                new Hydra()
             };
+            for (int mobCounter = 1; mobCounter < mobs.Count; mobCounter++)
+            {
+                mobs[mobCounter].Position = availablePositions[mobCounter];
+                availablePositions.RemoveAt(mobCounter);
+            }
 
-            var items = new List<Item>
+            List<Item> items = new List<Item>
             {
-                new BattleAxe(new Coords(2, 10)),
-                new BootsOfSwiftness(new Coords(20, 10)),
-                new Shield(new Coords(55, 15)),
-                new BattleAxe(new Coords(45, 2)),
-                new BootsOfSwiftness(new Coords(57, 20)),
-                new Shield(new Coords(10, 3))
+                new BattleAxe(),
+                new BootsOfSwiftness(),
+                new Shield(),
+                new BattleAxe(),
+                new BootsOfSwiftness(),
+                new Shield()
             };
+            for (int itemCounter = 0; itemCounter < items.Count; itemCounter++)
+            {
+                items[itemCounter].Position = availablePositions[itemCounter];
+                availablePositions.RemoveAt(itemCounter);
+            }
 
             var keyhanlder = new KeyHandler();
             IDrawEngine drawEngine = new ConsoleDrawEngine();
-            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions , mobs , items);
+            var engine = new GameEngine(drawEngine, maze, player, keyhanlder, potions, mobs, items);
             engine.Run();
         }
     }

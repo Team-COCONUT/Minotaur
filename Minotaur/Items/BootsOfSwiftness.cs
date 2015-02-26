@@ -5,7 +5,12 @@
         private const int BootAttack = 0;
         private const int BootDefense = 1;
         private const int Speed = 2;
-        private const char Char = '5';
+        private const char Char = 'B';
+
+        public BootsOfSwiftness()
+            : this(position: new Coords(0, 0))
+        {
+        }
 
 
        public BootsOfSwiftness(Coords position, 

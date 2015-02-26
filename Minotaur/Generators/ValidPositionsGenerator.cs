@@ -13,8 +13,9 @@
 
         public static IList<Coords> Generate(Labyrinth labyrinth, int positionsCount)
         {
-            HashSet<Coords> validCoords = new HashSet<Coords>();
+            IList<Coords> validCoords = new List<Coords>();
 
+            Console.WriteLine(labyrinth);
             while (validCoords.Count < positionsCount)
             {
                 int x = random.Next(0, labyrinth.Field.GetLength(1));

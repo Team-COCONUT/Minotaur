@@ -111,27 +111,32 @@
         }
 
         public void Run()
-        {
-            this.Labyrinth.Generate();
-          
+        { 
             var prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
 
+            this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);
+
             while (true)
             {
-                CollisionChecker.Check(this.Player, this.Potions, this.Mobs);
-                this.DrawEngine.DisplayPlayer(this.Player); 
-                System.Threading.Thread.Sleep(200);
+                CollisionChecker.Check(this.Player, this.Potions, this.Mobs, this.Items);
+                this.DrawEngine.DisplayPlayer(this.Player);
+
                 prevoiusPosition.X = this.player.Position.X;
-                prevoiusPosition.Y = this.player.Position.Y;              
-                this.DrawEngine.DisplayLabyrinth(this.Labyrinth,prevoiusPosition.X,prevoiusPosition.Y);
+                prevoiusPosition.Y = this.player.Position.Y;
                 this.DrawEngine.DisplayHealthPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
                 this.DrawEngine.DisplayMobs(this.Mobs, prevoiusPosition.X, prevoiusPosition.Y);
                 this.DrawEngine.DisplayItems(this.Items, prevoiusPosition.X, prevoiusPosition.Y);
-                      
+
+                System.Threading.Thread.Sleep(200);
+
                 Console.SetCursorPosition(prevoiusPosition.X, prevoiusPosition.Y);
                 Console.Write("");
                 this.keyhandler.CheckKey();
+
+                Console.SetCursorPosition(0, 30);
+                Console.WriteLine(player.ToString());
+                //TODO : implement print inventory
             }
         }
     }

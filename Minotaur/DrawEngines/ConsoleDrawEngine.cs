@@ -12,8 +12,8 @@
 
     public class ConsoleDrawEngine : IDrawEngine
     {
-        private const int radius =5 ;
-        public void DisplayLabyrinth(Labyrinth labyrinth, int visibleAreaX,int visibleAreaY)
+        private const int radius = 100;
+        public void DisplayLabyrinth(Labyrinth labyrinth, int visibleAreaX, int visibleAreaY)
         {
             var sb = new StringBuilder();
 
@@ -55,18 +55,7 @@
 
         public void DisplayPlayer(Player player)
         {
-            this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.Blue);
-        }
-
-        public void DisplayMinotaur(Minotaur minotaur, int x, int y)
-        {
-            if (minotaur.Position.X >= (x - radius) && minotaur.Position.X <= (x + radius))
-            {
-                if (minotaur.Position.Y >= (y - radius) && minotaur.Position.Y <= (y + radius))
-                {
-                    this.PrintStringAtPosition(minotaur.Position.X, minotaur.Position.Y, "V", ConsoleColor.Red);
-                }
-            }
+            this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.White);
         }
 
         public void DisplayHealthPotion(List<HealthPotion> potions,int x,int y)
@@ -91,7 +80,7 @@
                 {
                     if (mob.Position.Y >= (y - radius) && mob.Position.Y <= (y + radius))
                     {
-                        this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, mob.DisplayChar.ToString(), ConsoleColor.Yellow);
+                        this.PrintStringAtPosition(mob.Position.X, mob.Position.Y, mob.DisplayChar.ToString(), ConsoleColor.Red);
                     }
                 }
             }
@@ -105,7 +94,7 @@
                 {
                     if (item.Position.Y >= (y - radius) && item.Position.Y <= (y + radius))
                     {
-                        this.PrintStringAtPosition(item.Position.X, item.Position.Y, item.DisplayChar.ToString(), ConsoleColor.Magenta);
+                        this.PrintStringAtPosition(item.Position.X, item.Position.Y, item.DisplayChar.ToString(), ConsoleColor.Yellow);
                     }
                 }
             }

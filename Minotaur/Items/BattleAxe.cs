@@ -5,7 +5,12 @@
         private const int AxeAttack = 5;
         private const int AxeDefense = 3;
         private const int Speed = 0;
-        private const char Char = '7';
+        private const char Char = 'A';
+
+        public BattleAxe()
+            : this(position: new Coords(0, 0))
+        {
+        }
 
         public BattleAxe(Coords position, 
             int attackEffect = AxeAttack, 

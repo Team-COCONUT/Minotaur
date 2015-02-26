@@ -6,7 +6,12 @@
         private const int DefaultAttack = 30;
         private const int DefaultDefense = 50;
         private const int MobSpeed = 0;
-        private const char Char = 'w';
+        private const char Char = 'h';
+
+        public Harpy()
+            : this(position: new Coords(0, 0))
+        {
+        }
 
         public Harpy(Coords position,
                      int healthPoints = DefaultHealth,
