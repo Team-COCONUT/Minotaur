@@ -6,15 +6,13 @@
     using DrawEngines;
     using GameSprites;
     using GameSprites.Mobs;
+    using GameSprites.Potions;
     using Interfaces;
     using Items;
     using Generators;
 
     public class Program
     {
-        private const int PotionsCount = 10;
-        private const int PotionsHealth = 20;
-
         public static void Main()
         {
             Console.BufferHeight = Console.WindowHeight = 49;
@@ -28,10 +26,22 @@
             var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
             var availablePositions = ValidPositionsGenerator.Generate(maze, 30);
 
-            List<HealthPotion> potions = new List<HealthPotion>();
-            for (int potionCounter = 0; potionCounter < PotionsCount; potionCounter++)
+            List<Potion> potions = new List<Potion>
             {
-                potions.Add(new HealthPotion(availablePositions[potionCounter], PotionsHealth));
+                new HealthPotion(),
+                new DefensePotion(),
+                new AttackPotion(),
+                new HealthPotion(),
+                new DefensePotion(),
+                new AttackPotion(),
+                new HealthPotion(),
+                new DefensePotion(),
+                new AttackPotion(),
+                new HealthPotion()
+            };
+            for (int potionCounter = 0; potionCounter < potions.Count; potionCounter++)
+            {
+                potions[potionCounter].Position = availablePositions[potionCounter];
                 availablePositions.RemoveAt(potionCounter);
             }
 

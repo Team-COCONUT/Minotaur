@@ -5,6 +5,7 @@
 
     using GameSprites;
     using GameSprites.Mobs;
+    using GameSprites.Potions;
     using Interfaces;
     using Items;
 
@@ -14,7 +15,7 @@
         private Labyrinth labyrinth;
         private Player player; 
         private KeyHandler keyhandler;
-        private List<HealthPotion> potions;
+        private List<Potion> potions;
         private List<Mob> mobs;
         private List<Item> items; 
 
@@ -22,7 +23,7 @@
             Labyrinth labyrinth, 
             Player player, 
             KeyHandler handler,
-            List<HealthPotion> potions, 
+            List<Potion> potions, 
             List<Mob> mobs, 
             List<Item> items)
         {
@@ -92,7 +93,7 @@
             }
         }
 
-        public List<HealthPotion> Potions
+        public List<Potion> Potions
         {
             get { return potions; }
             set { potions = value; }
@@ -124,7 +125,7 @@
 
                 prevoiusPosition.X = this.player.Position.X;
                 prevoiusPosition.Y = this.player.Position.Y;
-                this.DrawEngine.DisplayHealthPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
+                this.DrawEngine.DisplayPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
                 this.DrawEngine.DisplayMobs(this.Mobs, prevoiusPosition.X, prevoiusPosition.Y);
                 this.DrawEngine.DisplayItems(this.Items, prevoiusPosition.X, prevoiusPosition.Y);
 

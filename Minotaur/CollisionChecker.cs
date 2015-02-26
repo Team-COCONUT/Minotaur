@@ -5,20 +5,21 @@
 
     using GameSprites;
     using GameSprites.Mobs;
+    using GameSprites.Potions;
     using Items;
     using Interfaces;
     
     public static class CollisionChecker
     {
-        public static void Check(Player player, ICollection<HealthPotion> potions, ICollection<Mob> mobs, ICollection<Item> items)
+        public static void Check(Player player, ICollection<Potion> potions, ICollection<Mob> mobs, ICollection<Item> items)
         {
-            HealthPotion potion = potions.Where(p => p.Position.X == player.Position.X &&
+            Potion potion = potions.Where(p => p.Position.X == player.Position.X &&
                 p.Position.Y == player.Position.Y).FirstOrDefault();
 
             if (potion != null)
             {
                 //add potion to player
-                player.ApplyHealthPotionEffect(potion);
+                player.ApplyPotionEffect(potion);
                 
                 //remove potion
                 potions.Remove(potion);

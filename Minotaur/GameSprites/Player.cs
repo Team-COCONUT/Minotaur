@@ -7,6 +7,7 @@
     using Enumerations;
     using Items;
     using Interfaces;
+    using GameSprites.Potions;
 
     public class Player : GameSprite, IMovable
     {
@@ -59,9 +60,11 @@
             this.SpeedPoints -= item.SpeedEffect;
         }
 
-        public void ApplyHealthPotionEffect(HealthPotion potion)
+        public void ApplyPotionEffect(Potion potion)
         {
             this.HealthPoints += potion.HealthEffect;
+            this.DefensePoints += potion.DefenseEffect;
+            this.AttackPoints += potion.AttackEffect;
         }
 
         public void Move(Directions direction, Labyrinth labyrinth)

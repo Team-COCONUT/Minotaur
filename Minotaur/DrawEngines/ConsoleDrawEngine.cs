@@ -7,6 +7,7 @@
     using Enumerations;
     using GameSprites;
     using GameSprites.Mobs;
+    using GameSprites.Potions;
     using Interfaces;
     using Items;
 
@@ -58,7 +59,7 @@
             this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.White);
         }
 
-        public void DisplayHealthPotion(List<HealthPotion> potions,int x,int y)
+        public void DisplayPotion(List<Potion> potions,int x,int y)
         {
             foreach (var potion in potions)
             {
@@ -66,7 +67,7 @@
                 {
                     if (potion.Position.Y >= (y - radius) && potion.Position.Y <= (y + radius))
                     {
-                        this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, "o", ConsoleColor.Green);
+                        this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, potion.Character.ToString(), ConsoleColor.Green);
                     }
                 }
             }
