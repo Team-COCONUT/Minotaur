@@ -23,7 +23,7 @@
             Labyrinth maze = new Labyrinth(30, 80);
             maze.Generate();
 
-            Player player = new Player(new Coords(1, 1), 99, 50, new List<Item>(), 30, 3);
+            Player player = new Player(new Coords(1, 1), 20, 10, new List<Item>(), 12);
 
             ValidPositionsGenerator positionGenerator = ValidPositionsGenerator.GetInstance;
             IList<Coords> availablePositions = positionGenerator.Generate(maze, 30);
@@ -49,7 +49,7 @@
 
             List<Mob> mobs = new List<Mob>
             {
-                new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 3, defensePoints: 3, minotaurSpeed: 3),
+                new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 3, defensePoints: 3),
                 new Bat(),
                 new Gorgo(),
                 new Skeleton(),

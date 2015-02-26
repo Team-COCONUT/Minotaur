@@ -5,7 +5,6 @@
         private const int DefaultHealth = 10;
         private const int DefaultAttack = 10;
         private const int DefaultDefense = 5;
-        private const int MobSpeed = 0;
         private const char Char = 'b';
 
         public Bat()
@@ -16,9 +15,8 @@
         public Bat(Coords position,
                    int healthPoints = DefaultHealth,
                    int attackPoints = DefaultAttack,
-                   int defensePoints = DefaultDefense, 
-                   int mobSpeed = MobSpeed)
-            : base(position, healthPoints, attackPoints, defensePoints, mobSpeed, Char)
+                   int defensePoints = DefaultDefense)
+            : base(position, healthPoints, attackPoints, defensePoints, Char)
         {
         }
     }

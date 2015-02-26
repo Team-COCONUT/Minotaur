@@ -42,6 +42,7 @@
                 roundCounter++;
             }
 
+            battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
             return battleLog.ToString();
         }
     }

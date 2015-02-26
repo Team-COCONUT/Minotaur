@@ -14,8 +14,8 @@
         private ICollection<Item> inventory;
         private const char Char = (char)2;
 
-        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory, int defensePoints, int playerSpeed)
-            : base(position, healthPoints, attackPoints, defensePoints, playerSpeed, Char)
+        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory, int defensePoints)
+            : base(position, healthPoints, attackPoints, defensePoints, Char)
         {
             this.Inventory = inventory;
         }
@@ -49,14 +49,12 @@
         {
             this.DefensePoints += item.DefenseEffect;
             this.AttackPoints += item.AttackEffect;
-            this.SpeedPoints += item.SpeedEffect;
         }
 
         public void RemoveItemEffects(Item item)
         {
             this.DefensePoints -= item.DefenseEffect;
             this.AttackPoints -= item.AttackEffect;
-            this.SpeedPoints -= item.SpeedEffect;
         }
 
         public void ApplyPotionEffect(Potion potion)

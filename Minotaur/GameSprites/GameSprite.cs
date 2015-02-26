@@ -10,16 +10,14 @@
         private int healthPoints;
         private int attackPoints;
         private int defensePoints;
-        private int speed;
         private Random random;
 
-        public GameSprite(Coords position, int healthPoints, int attackPoints, int defensePoints, int speed, char displayChar)
+        public GameSprite(Coords position, int healthPoints, int attackPoints, int defensePoints, char displayChar)
         {
             this.Position = position;
             this.HealthPoints = healthPoints;
             this.AttackPoints = attackPoints;
             this.DefensePoints = defensePoints;
-            this.SpeedPoints = speed;
             this.DisplayChar = displayChar;
             this.random = new Random();
         }
@@ -49,19 +47,6 @@
             set
             {
                 this.defensePoints = value;
-            }
-        }
-
-        public int SpeedPoints
-        {
-            get
-            {
-                return this.speed;
-            }
-
-            set
-            {
-                this.speed = value;
             }
         }
 
@@ -128,8 +113,8 @@
 
         public override string ToString()
         {
-            return String.Format("health: {0}, attack: {1}, defence: {2}, speed: {3}",
-                this.HealthPoints, this.AttackPoints, this.DefensePoints, this.SpeedPoints);
+            return String.Format("health: {0}, attack: {1}, defence: {2}",
+                this.HealthPoints, this.AttackPoints, this.DefensePoints);
         }
     }
 }
