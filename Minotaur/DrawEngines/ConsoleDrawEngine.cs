@@ -59,7 +59,7 @@
             this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.White);
         }
 
-        public void DisplayPotion(List<Potion> potions,int x,int y)
+        public void DisplayPotion(IEnumerable<Potion> potions, int x, int y)
         {
             foreach (var potion in potions)
             {
@@ -73,7 +73,7 @@
             }
         }
 
-        public void DisplayMobs(List<Mob> mobs, int x, int y)
+        public void DisplayMobs(IEnumerable<GameSprite> mobs, int x, int y)
         {
             foreach (var mob in mobs)
             {
@@ -87,7 +87,7 @@
             }
         }
 
-        public void DisplayItems(List<Item> items, int x, int y)
+        public void DisplayItems(IEnumerable<Item> items, int x, int y)
         {
             foreach (var item in items)
             {
