@@ -1,7 +1,5 @@
 ﻿namespace Minotaur.GameSprites.Potions
 {
-    using System;
-
     public class AttackPotion : Potion
     {
         private const char Char = 'A';

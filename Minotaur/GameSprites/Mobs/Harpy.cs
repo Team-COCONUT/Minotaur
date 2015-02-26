@@ -2,9 +2,9 @@
 {
     public class Harpy : Mob
     {
-        private const int DefaultHealth = 100;
-        private const int DefaultAttack = 30;
-        private const int DefaultDefense = 50;
+        private const int DefaultHealth = 10;
+        private const int DefaultAttack = 25;
+        private const int DefaultDefense = 5;
         private const int MobSpeed = 0;
         private const char Char = 'h';
 

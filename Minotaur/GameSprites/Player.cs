@@ -8,6 +8,7 @@
     using Items;
     using Interfaces;
     using GameSprites.Potions;
+    using Mobs;
 
     public class Player : GameSprite, IMovable
     {
@@ -65,6 +66,12 @@
             this.HealthPoints += potion.HealthEffect;
             this.DefensePoints += potion.DefenseEffect;
             this.AttackPoints += potion.AttackEffect;
+        }
+
+        public override int Attack(GameSprite sprite)
+        {
+            var mob = sprite as Mob;
+            return this.HealthPoints -= mob.AttackPoints - this.DefensePoints;
         }
 
         public void Move(Directions direction, Labyrinth labyrinth)

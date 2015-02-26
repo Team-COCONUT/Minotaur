@@ -4,7 +4,6 @@
     using System.Collections.Generic;
 
     using GameSprites;
-    using GameSprites.Mobs;
     using GameSprites.Potions;
     using Items;
 

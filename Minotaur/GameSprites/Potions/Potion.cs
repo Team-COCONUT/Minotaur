@@ -1,7 +1,5 @@
 ﻿namespace Minotaur.GameSprites.Potions
 {
-    using System;
-
     using Interfaces;
 
     public class Potion : IPotion

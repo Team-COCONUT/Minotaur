@@ -23,10 +23,10 @@
             var maze = new Labyrinth(30, 80);
             maze.Generate();
 
-            var player = new Player(new Coords(1, 1), 99, 3, new List<Item>(), 3, 3);
+            var player = new Player(new Coords(1, 1), 99, 30, new List<Item>(), 3, 3);
             var availablePositions = ValidPositionsGenerator.Generate(maze, 30);
 
-            List<Potion> potions = new List<Potion>
+            var potions = new List<Potion>
             {
                 new HealthPotion(),
                 new DefensePotion(),
@@ -39,13 +39,13 @@
                 new AttackPotion(),
                 new HealthPotion()
             };
-            for (int potionCounter = 0; potionCounter < potions.Count; potionCounter++)
+            for (var potionCounter = 0; potionCounter < potions.Count; potionCounter++)
             {
                 potions[potionCounter].Position = availablePositions[potionCounter];
                 availablePositions.RemoveAt(potionCounter);
             }
 
-            List<Mob> mobs = new List<Mob>
+            var mobs = new List<Mob>
             {
                 new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 3, defensePoints: 3, minotaurSpeed: 3),
                 new Bat(),
@@ -58,13 +58,13 @@
                 new Skeleton(),
                 new Hydra()
             };
-            for (int mobCounter = 1; mobCounter < mobs.Count; mobCounter++)
+            for (var mobCounter = 1; mobCounter < mobs.Count; mobCounter++)
             {
                 mobs[mobCounter].Position = availablePositions[mobCounter];
                 availablePositions.RemoveAt(mobCounter);
             }
 
-            List<Item> items = new List<Item>
+            var items = new List<Item>
             {
                 new BattleAxe(),
                 new BootsOfSwiftness(),
@@ -73,7 +73,7 @@
                 new BootsOfSwiftness(),
                 new Shield()
             };
-            for (int itemCounter = 0; itemCounter < items.Count; itemCounter++)
+            for (var itemCounter = 0; itemCounter < items.Count; itemCounter++)
             {
                 items[itemCounter].Position = availablePositions[itemCounter];
                 availablePositions.RemoveAt(itemCounter);

@@ -102,7 +102,7 @@
             this.position.Y = y;
         }
 
-        public int Attack()
+        public virtual int Attack(GameSprite sprite)
         {
             return this.random.Next(50, this.AttackPoints + 1);
         }

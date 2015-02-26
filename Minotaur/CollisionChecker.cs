@@ -7,36 +7,44 @@
     using GameSprites.Mobs;
     using GameSprites.Potions;
     using Items;
-    using Interfaces;
-    
+
     public static class CollisionChecker
     {
-        public static void Check(Player player, ICollection<Potion> potions, ICollection<Mob> mobs, ICollection<Item> items)
+        public static void CheckPotionCollision(Player player, ICollection<Potion> potions)
         {
-            Potion potion = potions.Where(p => p.Position.X == player.Position.X &&
-                p.Position.Y == player.Position.Y).FirstOrDefault();
+            var potion = potions.FirstOrDefault(p => p.Position.X == player.Position.X &&
+                                            p.Position.Y == player.Position.Y);
 
             if (potion != null)
             {
                 //add potion to player
                 player.ApplyPotionEffect(potion);
-                
+
                 //remove potion
                 potions.Remove(potion);
-
-                return;
             }
+        }
 
-            Mob mob = mobs.Where(m => m.Position.X == player.Position.X &&
-                m.Position.Y == player.Position.Y).FirstOrDefault();
+        public static void CheckMobCollision(Player player, ICollection<Mob> mobs)
+        {
+            var mob = mobs.FirstOrDefault(m => m.Position.X == player.Position.X &&
+                                               m.Position.Y == player.Position.Y);
 
             if (mob != null)
             {
-
+                player.Attack(mob);
+                mob.Attack(player);
+                if (mob.HealthPoints <= 0)
+                {
+                    mobs.Remove(mob);
+                }
             }
+        }
 
-            Item item = items.Where(i => i.Position.X == player.Position.X &&
-                i.Position.Y == player.Position.Y).FirstOrDefault();
+        public static void CheckItemCollision(Player player, ICollection<Item> items)
+        {
+            var item = items.FirstOrDefault(i => i.Position.X == player.Position.X &&
+                                                  i.Position.Y == player.Position.Y);
 
             if (item != null)
             {
