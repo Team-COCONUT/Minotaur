@@ -5,7 +5,7 @@
     using Enumerations;
     using GameSprites;
 
-    public  class KeyHandler
+    public class KeyHandler
     {
         public event EventHandler OnLeftArrowPressed;
 

@@ -5,15 +5,18 @@
     using System.Text;
 
     using Minotaur.GameSprites;
+    using Minotaur.DrawEngines;
 
     public static class BattleEngine
     {
-        public static string StartBattle(GameSprite player, GameSprite enemy, ICollection<GameSprite> enemies)
+        public static void StartBattle(GameSprite player, GameSprite enemy, ICollection<GameSprite> enemies)
         {
             StringBuilder battleLog = new StringBuilder();
             int roundCounter = 1;
             bool playerTurn = true;
 
+            battleLog.AppendLine(string.Format("Started battle with: {0}", enemy.GetType().Name));
+            battleLog.AppendLine(new string('-', 20));
             while (player.IsAlive() && enemy.IsAlive())
             {
                 battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
@@ -48,9 +51,15 @@
             if (!enemy.IsAlive())
             {
                 RemoveEnemy(enemy, enemies);
+                battleLog.AppendLine("Player wins.");
+            }
+            else
+            {
+                battleLog.AppendLine("Player is dead.");
             }
             
-            return battleLog.ToString();
+            ConsoleDrawEngine.DisplayBattleLog(battleLog.ToString());
+            GameEngine.RedrawLabyrinth = true;
         }
 
         private static void RemoveEnemy(GameSprite enemy, ICollection<GameSprite> enemies)

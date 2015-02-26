@@ -32,7 +32,7 @@
 
             if (mob != null)
             {
-                string battleResult = BattleEngine.StartBattle(player, mob, mobs);
+                BattleEngine.StartBattle(player, mob, mobs);
             }
 
             Item item = items.Where(i => i.Position.X == player.Position.X &&

@@ -111,6 +111,8 @@
             set { this.items = value; }
         }
 
+        public static bool RedrawLabyrinth { get; set; }
+
         public void Run()
         {
             var prevoiusPosition = new Coords(0, 0);
@@ -120,6 +122,12 @@
 
             while (true)
             {
+                if (RedrawLabyrinth)
+                {
+                    this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);
+                    RedrawLabyrinth = false;
+                }
+                
                 CollisionChecker.Check(this.Player, this.Potions, this.Mobs, this.Items);
                 this.DrawEngine.DisplayPlayer(this.Player);
 

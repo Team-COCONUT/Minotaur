@@ -15,6 +15,7 @@
         private const int radius = 100;
         public void DisplayLabyrinth(Labyrinth labyrinth, int visibleAreaX, int visibleAreaY)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             var sb = new StringBuilder();
 
             for (var row = 0; row < labyrinth.Field.GetLength(0); row++)
@@ -98,6 +99,15 @@
                     }
                 }
             }
+        }
+
+        public static void DisplayBattleLog(string battleLog)
+        {
+            Console.Clear();
+            Console.WriteLine(battleLog);
+            Console.WriteLine("Press any key to continue playing...");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         private void PrintStringAtPosition(int x, int y, string text, ConsoleColor color)
