@@ -20,9 +20,9 @@
         private Labyrinth labyrinth;
         private Player player;
         private KeyHandler keyhandler;
-        private List<Potion> potions;
+        private IList<Potion> potions;
         private IList<GameSprite> mobs;
-        private List<Item> items;
+        private IList<Item> items;
 
         private static Random randomNumberGenerator = new Random();
 
@@ -37,9 +37,9 @@
             IList<Coords> availablePositions = positionGenerator.Generate(maze, 30);
 
             Player player = new Player(position: new Coords(1, 1), healthPoints: 50, attackPoints: 10, defensePoints: 12, inventory: new List<Item>());
-            List<Potion> potions = this.GeneratePotions(10, availablePositions);
-            List<GameSprite> mobs = this.GenerateMobs(9, availablePositions);
-            List<Item> items = this.GenerateItems(6, availablePositions);
+            IList<Potion> potions = this.GeneratePotions(10, availablePositions);
+            IList<GameSprite> mobs = this.GenerateMobs(9, availablePositions);
+            IList<Item> items = this.GenerateItems(6, availablePositions);
 
             this.DrawEngine = drawEngine;
             this.Labyrinth = maze;
@@ -107,10 +107,10 @@
             }
         }
 
-        public List<Potion> Potions
+        public IList<Potion> Potions
         {
-            get { return potions; }
-            private set { potions = value; }
+            get { return this.potions; }
+            private set { this.potions = value; }
         }
 
         public IList<GameSprite> Mobs
@@ -119,7 +119,7 @@
             private set { this.mobs = value; }
         }
 
-        public List<Item> Items
+        public IList<Item> Items
         {
             get { return this.items; }
             private set { this.items = value; }
@@ -187,7 +187,7 @@
             return this.Mobs.FirstOrDefault(m => m.GetType().Name == "Minotaur") != null;
         }
 
-        private List<Potion> GeneratePotions(int potionsCount, IList<Coords> availablePositions)
+        private IList<Potion> GeneratePotions(int potionsCount, IList<Coords> availablePositions)
         {
             List<Potion> potions = new List<Potion>();
 
@@ -201,7 +201,7 @@
             return potions;
         }
 
-        private List<Item> GenerateItems(int itemsCount, IList<Coords> availablePositions)
+        private IList<Item> GenerateItems(int itemsCount, IList<Coords> availablePositions)
         {
             List<Item> items = new List<Item>();
 
@@ -215,7 +215,7 @@
             return items;
         }
 
-        private List<GameSprite> GenerateMobs(int mobsCount, IList<Coords> availablePositions)
+        private IList<GameSprite> GenerateMobs(int mobsCount, IList<Coords> availablePositions)
         {
             List<GameSprite> mobs = new List<GameSprite>();
 

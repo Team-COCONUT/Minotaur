@@ -119,7 +119,7 @@
             this.Field[1, 1] = CellsEnum.Empty;
 
             //Minatour starting position
-            this.field[this.Field.GetLength(0) - 1, this.Field.GetLength(1) - 1] = CellsEnum.Empty;
+            this.Field[this.Field.GetLength(0) - 1, this.Field.GetLength(1) - 1] = CellsEnum.Empty;
         }      
     }
 }
