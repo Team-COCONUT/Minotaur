@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+
     using Artifacts.Items;
     using Artifacts.Potions;
     using DrawEngines;

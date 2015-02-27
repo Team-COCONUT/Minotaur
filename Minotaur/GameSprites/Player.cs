@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Linq;
+
     using Artifacts.Items;
     using Artifacts.Potions;
     using Enumerations;
@@ -23,7 +25,7 @@
         {
             get
             {
-                return new List<Item>(inventory);
+                return this.inventory;
             }
 
             private set
@@ -34,14 +36,15 @@
 
         public void AddToInventory(Item item)
         {
+            
             this.Inventory.Add(item);
-            ApplyItemEffects(item);
+            this.ApplyItemEffects(item);
         }
 
         public void RemoveFromInventory(Item item)
         {
             this.Inventory.Remove(item);
-            RemoveItemEffects(item);
+            this.RemoveItemEffects(item);
         }
 
         public void ApplyItemEffects(Item item)
@@ -63,6 +66,7 @@
                 var healthPotion = potion as HealthPotion;
                 this.HealthPoints += healthPotion.HealthEffect;
             }
+
             this.DefensePoints += potion.DefenseEffect;
             this.AttackPoints += potion.AttackEffect;
         }
@@ -87,19 +91,16 @@
                     break;
             }
 
-            CheckPosition(newPosition, labyrinth);
+            this.CheckPosition(newPosition, labyrinth);
         }
 
         public override string ToString()
         {
-            var baseInfo = base.ToString();
-            var items = new StringBuilder();
-
-            foreach (var item in Inventory)
-            {
-                items.AppendLine(item.ToString());
-            }
-            return String.Format(baseInfo, items);
+            //var baseInfo = base.ToString();
+            var result = new StringBuilder(base.ToString());
+            var itemsInInventory = this.Inventory.Select(i => i.GetType().Name);
+            result.Append(string.Format(" Items: [{0}]", string.Join(", ", itemsInInventory)));
+            return result.ToString();
         }
     }
 }
