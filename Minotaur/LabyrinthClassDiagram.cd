@@ -24,7 +24,7 @@
   <Class Name="Minotaur.GameEngine" Collapsed="true">
     <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAQAAAAEAqQAAACkAABAAAAAAAAABAAAAASAAAAI=</HashCode>
+      <HashCode>IAQEASAAAAEAqQAAAGkAABAAAAAAUAABAAAAgSABAAI=</HashCode>
       <FileName>GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,56 +50,56 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Artifact" Collapsed="true">
-    <Position X="18.5" Y="1" Width="1.5" />
+    <Position X="17" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAkAAAAAAAAAAAEAAACAAAAAQAAAAA=</HashCode>
       <FileName>Artifacts\Artifact.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Items.BattleAxe" Collapsed="true">
-    <Position X="14" Y="3.75" Width="1.5" />
+    <Position X="12.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAABAA=</HashCode>
       <FileName>Artifacts\Items\BattleAxe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Items.BootsOfSwiftness" Collapsed="true">
-    <Position X="17.5" Y="3.75" Width="1.5" />
+    <Position X="16" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAA=</HashCode>
       <FileName>Artifacts\Items\BootsOfSwiftness.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Items.Item" Collapsed="true">
-    <Position X="15.75" Y="2.25" Width="1.5" />
+    <Position X="14.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Artifacts\Items\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Items.Shield" Collapsed="true">
-    <Position X="15.75" Y="3.75" Width="1.5" />
+    <Position X="14.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAA=</HashCode>
       <FileName>Artifacts\Items\Shield.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Potions.AttackPotion" Collapsed="true">
-    <Position X="23.25" Y="3.75" Width="1.5" />
+    <Position X="21.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Artifacts\Potions\AttackPotion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Potions.DefensePotion" Collapsed="true">
-    <Position X="19.75" Y="3.75" Width="1.5" />
+    <Position X="17.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Artifacts\Potions\DefensePotion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.Artifacts.Potions.HealthPotion" Collapsed="true">
-    <Position X="21.5" Y="3.75" Width="1.5" />
+    <Position X="19.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Artifacts\Potions\HealthPotion.cs</FileName>
@@ -107,7 +107,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Minotaur.Artifacts.Potions.Potion" Collapsed="true">
-    <Position X="21.5" Y="2.25" Width="1.5" />
+    <Position X="19.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Artifacts\Potions\Potion.cs</FileName>
@@ -129,14 +129,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.GameSprite" Collapsed="true">
-    <Position X="18.5" Y="5.5" Width="1.5" />
+    <Position X="16.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAIAAQAAAAEAkAAgAIQAIAIAEAAAAEAQAAQAAQAA=</HashCode>
       <FileName>GameSprites\GameSprite.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Player" Collapsed="true">
-    <Position X="16.75" Y="6.75" Width="1.5" />
+    <Position X="15" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIACACAEAAgAIAAAIAAAACACAAAAAgAAAAA=</HashCode>
       <FileName>GameSprites\Player.cs</FileName>
@@ -144,49 +144,49 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Bat" Collapsed="true">
-    <Position X="19.75" Y="8.25" Width="1.5" />
+    <Position X="18" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
       <FileName>GameSprites\Mobs\Bat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Gorgo" Collapsed="true">
-    <Position X="14.5" Y="8.25" Width="1.5" />
+    <Position X="12.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
       <FileName>GameSprites\Mobs\Gorgo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Harpy" Collapsed="true">
-    <Position X="18" Y="8.25" Width="1.5" />
+    <Position X="16.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
       <FileName>GameSprites\Mobs\Harpy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Hydra" Collapsed="true">
-    <Position X="21.5" Y="8.25" Width="1.5" />
+    <Position X="19.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
       <FileName>GameSprites\Mobs\Hydra.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Minotaur" Collapsed="true">
-    <Position X="16.25" Y="8.25" Width="1.5" />
+    <Position X="14.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>GameSprites\Mobs\Minotaur.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Mob" Collapsed="true">
-    <Position X="20.25" Y="6.75" Width="1.5" />
+    <Position X="18.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameSprites\Mobs\Mob.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Minotaur.GameSprites.Mobs.Skeleton" Collapsed="true">
-    <Position X="23.25" Y="8.25" Width="1.5" />
+    <Position X="21.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
       <FileName>GameSprites\Mobs\Skeleton.cs</FileName>

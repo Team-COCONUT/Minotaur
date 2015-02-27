@@ -8,11 +8,8 @@
     public class KeyHandler
     {
         public event EventHandler OnLeftArrowPressed;
-
         public event EventHandler OnRightArrowPressed;
-
         public event EventHandler OnUpArrowPressed;
-
         public event EventHandler OnDownArrowPressed;
 
         public void CheckKey()
@@ -32,10 +29,7 @@
 
                 if (pressedkey.Key.Equals(ConsoleKey.RightArrow))
                 {
-                    if (this.OnRightArrowPressed != null)
-                    {
-                        this.OnRightArrowPressed(this, new EventArgs());
-                    }
+                    this.OnRightArrowPressed(this, new EventArgs());
                 }
 
                 if (pressedkey.Key.Equals(ConsoleKey.UpArrow))
@@ -53,11 +47,8 @@
         public void ImplementMove(Player player, Labyrinth labyrinth)
         {
             this.OnRightArrowPressed += (sender, eventInfo) => player.Move(Directions.Right, labyrinth);
-
             this.OnLeftArrowPressed += (sender, eventInfo) => player.Move(Directions.Left, labyrinth);
-            
             this.OnUpArrowPressed += (sender, eventInfo) => player.Move(Directions.Up, labyrinth);
-            
             this.OnDownArrowPressed += (sender, eventInfo) => player.Move(Directions.Down, labyrinth);
         }
     }

@@ -50,53 +50,53 @@
             this.Items = items;
         }
 
-        public Labyrinth Labyrinth
+        private Labyrinth Labyrinth
         {
             get
             {
                 return this.labyrinth;
             }
 
-            private set
+            set
             {
                 this.labyrinth = value;
             }
         }
 
-        public Player Player
+        private Player Player
         {
             get
             {
                 return this.player;
             }
 
-            private set
+            set
             {
                 this.player = value;
             }
         }
 
-        public IDrawEngine DrawEngine
+        private IDrawEngine DrawEngine
         {
             get
             {
                 return this.drawEngine;
             }
 
-            private set
+            set
             {
                 this.drawEngine = value;
             }
         }
 
-        public KeyHandler KeyHandler
+        private KeyHandler KeyHandler
         {
             get
             {
                 return this.keyhandler;
             }
 
-            private set
+            set
             {
                 if (value == null)
                 {
@@ -107,22 +107,22 @@
             }
         }
 
-        public IList<Potion> Potions
+        private IList<Potion> Potions
         {
             get { return this.potions; }
-            private set { this.potions = value; }
+            set { this.potions = value; }
         }
 
-        public IList<GameSprite> Mobs
+        private IList<GameSprite> Mobs
         {
             get { return this.mobs; }
-            private set { this.mobs = value; }
+            set { this.mobs = value; }
         }
 
-        public IList<Item> Items
+        private IList<Item> Items
         {
             get { return this.items; }
-            private set { this.items = value; }
+            set { this.items = value; }
         }
 
         public static bool RedrawLabyrinth { get; set; }
