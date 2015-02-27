@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Artifacts\Artifact.cs" />
     <Compile Include="BattleEngine.cs" />
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Enumerations\CellsEnum.cs" />
@@ -54,22 +55,23 @@
     <Compile Include="GameSprites\Mobs\Harpy.cs" />
     <Compile Include="GameSprites\Mobs\Hydra.cs" />
     <Compile Include="GameSprites\Mobs\Skeleton.cs" />
-    <Compile Include="GameSprites\Potions\AttackPotion.cs" />
-    <Compile Include="GameSprites\Potions\DefensePotion.cs" />
-    <Compile Include="GameSprites\Potions\HealthPotion.cs" />
-    <Compile Include="GameSprites\Potions\Potion.cs" />
+    <Compile Include="Artifacts\Potions\AttackPotion.cs" />
+    <Compile Include="Artifacts\Potions\DefensePotion.cs" />
+    <Compile Include="Artifacts\Potions\HealthPotion.cs" />
+    <Compile Include="Artifacts\Potions\Potion.cs" />
     <Compile Include="Generators\ValidPositionsGenerator.cs" />
+    <Compile Include="Interfaces\IDrinkable.cs" />
     <Compile Include="Interfaces\IGenerator.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="Interfaces\IPotion.cs" />
-    <Compile Include="Items\BattleAxe.cs" />
+    <Compile Include="Interfaces\IHealthPotion.cs" />
+    <Compile Include="Artifacts\Items\BattleAxe.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="GameSprites\GameSprite.cs" />
-    <Compile Include="Items\BootsOfSwiftness.cs" />
+    <Compile Include="Artifacts\Items\BootsOfSwiftness.cs" />
     <Compile Include="Interfaces\IDrawEngine.cs" />
     <Compile Include="Interfaces\IEquippable.cs" />
-    <Compile Include="Items\Item.cs" />
-    <Compile Include="Items\Shield.cs" />
+    <Compile Include="Artifacts\Items\Item.cs" />
+    <Compile Include="Artifacts\Items\Shield.cs" />
     <Compile Include="KeyHandler.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="GameSprites\Mobs\Minotaur.cs" />

@@ -2,12 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using Artifacts.Items;
+    using Artifacts.Potions;
     using GameSprites;
-    using GameSprites.Mobs;
-    using GameSprites.Potions;
     using Interfaces;
-    using Items;
 
     public class GameEngine
     {

@@ -3,13 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-
+    using Artifacts.Items;
+    using Artifacts.Potions;
     using Enumerations;
-    using Items;
     using Interfaces;
-    using GameSprites.Potions;
 
-    public class Player : GameSprite, IMovable
+    public class Player : GameSprite, IMovable, IEquippable, IDrinkable
     {
         private ICollection<Item> inventory;
         private const char Char = (char)2;
@@ -59,7 +58,11 @@
 
         public void ApplyPotionEffect(Potion potion)
         {
-            this.HealthPoints += potion.HealthEffect;
+            if (potion is HealthPotion)
+            {
+                var healthPotion = potion as HealthPotion;
+                this.HealthPoints += healthPotion.HealthEffect;
+            }
             this.DefensePoints += potion.DefenseEffect;
             this.AttackPoints += potion.AttackEffect;
         }

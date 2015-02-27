@@ -1,13 +1,12 @@
 ﻿namespace Minotaur.Interfaces
 {
+    using Artifacts.Items;
+
     public interface IEquippable
     {
-        // TODO: implement equip and unequip methods in items
-        // void Equip();
-        // void Unequip();
-
-        int DefenseEffect { get; }
-        int AttackEffect { get; }
-        int SpeedEffect { get; }
+        void AddToInventory(Item item);
+        void RemoveFromInventory(Item item);
+        void ApplyItemEffects(Item item);
+        void RemoveItemEffects(Item item);
     }
 }

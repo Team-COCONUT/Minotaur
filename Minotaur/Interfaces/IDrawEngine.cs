@@ -2,10 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using Artifacts.Items;
+    using Artifacts.Potions;
     using GameSprites;
-    using GameSprites.Potions;
-    using Items;
 
     public interface IDrawEngine
     {

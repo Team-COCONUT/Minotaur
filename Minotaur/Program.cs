@@ -2,13 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using Artifacts.Items;
+    using Artifacts.Potions;
     using DrawEngines;
     using GameSprites;
     using GameSprites.Mobs;
-    using GameSprites.Potions;
     using Interfaces;
-    using Items;
     using Generators;
 
     public class Program

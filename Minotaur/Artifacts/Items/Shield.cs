@@ -1,10 +1,9 @@
-﻿namespace Minotaur.Items
+﻿namespace Minotaur.Artifacts.Items
 {
-   public class Shield : Item
+    public class Shield : Item
     {
         private const int ShieldAttack = -1;
         private const int ShieldDefense = 5;
-        private const int Speed = -2;
         private const char Char = 'S';
 
         public Shield()
@@ -15,9 +14,8 @@
        public Shield(Coords position, 
            int attackEffect = ShieldAttack, 
            int defenseEffect = ShieldDefense, 
-           int speedEffect = Speed, 
            char displayChar = Char) 
-           : base(position, attackEffect, defenseEffect, speedEffect, displayChar)
+           : base(position, attackEffect, defenseEffect, displayChar)
        {
        }
     }

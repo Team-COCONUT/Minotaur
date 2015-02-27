@@ -3,12 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-
+    using Artifacts.Items;
+    using Artifacts.Potions;
     using Enumerations;
     using GameSprites;
-    using GameSprites.Potions;
     using Interfaces;
-    using Items;
 
     public class ConsoleDrawEngine : IDrawEngine
     {
@@ -67,7 +66,7 @@
                 {
                     if (potion.Position.Y >= (y - radius) && potion.Position.Y <= (y + radius))
                     {
-                        this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, potion.Character.ToString(), ConsoleColor.Green);
+                        this.PrintStringAtPosition(potion.Position.X, potion.Position.Y, potion.DisplayChar.ToString(), ConsoleColor.Green);
                     }
                 }
             }
