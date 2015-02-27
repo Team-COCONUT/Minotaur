@@ -2,10 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
+
     using Artifacts.Items;
     using Artifacts.Potions;
     using GameSprites;
     using Interfaces;
+    using Minotaur.DrawEngines;
+    using Minotaur.Exceptions;
 
     public class GameEngine
     {
@@ -118,35 +122,49 @@
 
             this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);
 
-            while (true)
+            try
             {
-                if (RedrawLabyrinth)
+                while (true)
                 {
-                    this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);
-                    RedrawLabyrinth = false;
+                    if (!this.Player.IsAlive())
+                    {
+                        throw new PlayerIsDeadException();
+                    }
+
+                    if (RedrawLabyrinth)
+                    {
+                        this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);
+                        RedrawLabyrinth = false;
+                    }
+
+                    CollisionChecker.CheckPotionCollision(this.Player, this.Potions);
+                    CollisionChecker.CheckMobCollision(this.Player, this.Mobs);
+                    CollisionChecker.CheckItemCollision(this.Player, this.Items);
+                    this.DrawEngine.DisplayPlayer(this.Player);
+
+                    prevoiusPosition.X = this.player.Position.X;
+                    prevoiusPosition.Y = this.player.Position.Y;
+                    this.DrawEngine.DisplayPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
+                    this.DrawEngine.DisplayMobs(this.Mobs, prevoiusPosition.X, prevoiusPosition.Y);
+                    this.DrawEngine.DisplayItems(this.Items, prevoiusPosition.X, prevoiusPosition.Y);
+
+                    Thread.Sleep(200);
+
+                    this.DrawEngine.ClearPosition(prevoiusPosition.X, prevoiusPosition.Y);
+                    this.keyhandler.CheckKey();
+
+                    Console.SetCursorPosition(0, 30);
+                    Console.WriteLine(player.ToString());
+                    //TODO : implement print inventory
                 }
-                
-                CollisionChecker.CheckPotionCollision(this.Player, this.Potions);
-                CollisionChecker.CheckMobCollision(this.Player, this.Mobs);
-                CollisionChecker.CheckItemCollision(this.Player, this.Items);
-                this.DrawEngine.DisplayPlayer(this.Player);
-
-                prevoiusPosition.X = this.player.Position.X;
-                prevoiusPosition.Y = this.player.Position.Y;
-                this.DrawEngine.DisplayPotion(this.Potions, prevoiusPosition.X, prevoiusPosition.Y);
-                this.DrawEngine.DisplayMobs(this.Mobs, prevoiusPosition.X, prevoiusPosition.Y);
-                this.DrawEngine.DisplayItems(this.Items, prevoiusPosition.X, prevoiusPosition.Y);
-
-                System.Threading.Thread.Sleep(200);
-
-                Console.SetCursorPosition(prevoiusPosition.X, prevoiusPosition.Y);
-                Console.Write("");
-                this.keyhandler.CheckKey();
-
-                Console.SetCursorPosition(0, 30);
-                Console.WriteLine(player.ToString());
-                //TODO : implement print inventory
             }
+            catch (PlayerIsDeadException ex)
+            {
+                this.DrawEngine.ClearAll();
+                ConsoleDrawEngine.DisplayStickyMsg(ex.Message, "The game will be restarted...");
+                LabyrinthMain.Main();
+            }
+
         }
     }
 }

@@ -100,12 +100,23 @@
             }
         }
 
-        public static void DisplayBattleLog(string battleLog)
+        public static void DisplayStickyMsg(string message, string confirmationMsg)
         {
             Console.Clear();
-            Console.WriteLine(battleLog);
-            Console.WriteLine("Press any key to continue playing...");
+            Console.WriteLine(message);
+            Console.WriteLine(confirmationMsg);
             Console.ReadKey();
+            Console.Clear();
+        }
+
+        public void ClearPosition(int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("");
+        }
+
+        public void ClearAll()
+        {
             Console.Clear();
         }
 

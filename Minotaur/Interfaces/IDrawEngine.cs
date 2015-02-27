@@ -14,5 +14,7 @@
         void DisplayPotion(IEnumerable<Potion> potions,int positionX, int positionY);
         void DisplayMobs(IEnumerable<GameSprite> mobs, int positionX, int positionY);
         void DisplayItems(IEnumerable<Item> items, int positionX, int positionY);
+        void ClearPosition(int x, int y);
+        void ClearAll();
     }
 }

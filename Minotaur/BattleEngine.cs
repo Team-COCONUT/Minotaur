@@ -48,17 +48,20 @@
 
             battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
 
+            string confirmMessage = "";
             if (!enemy.IsAlive())
             {
                 RemoveEnemy(enemy, enemies);
                 battleLog.AppendLine("Player wins.");
+                confirmMessage = "Press any key to continue playing...";
             }
             else
             {
                 battleLog.AppendLine("Player is dead.");
+                confirmMessage = "Game Over...";
             }
-            
-            ConsoleDrawEngine.DisplayBattleLog(battleLog.ToString());
+
+            ConsoleDrawEngine.DisplayStickyMsg(battleLog.ToString(), confirmMessage);
             GameEngine.RedrawLabyrinth = true;
         }
 
