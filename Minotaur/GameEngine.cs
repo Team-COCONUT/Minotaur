@@ -7,9 +7,11 @@
     using Artifacts.Items;
     using Artifacts.Potions;
     using GameSprites;
+    using GameSprites.Mobs;
     using Interfaces;
-    using Minotaur.DrawEngines;
-    using Minotaur.Exceptions;
+    using DrawEngines;
+    using Exceptions;
+    using Generators;
 
     public class GameEngine
     {
@@ -21,18 +23,27 @@
         private ICollection<GameSprite> mobs;
         private List<Item> items;
 
-        public GameEngine(IDrawEngine drawEngine,
-            Labyrinth labyrinth,
-            Player player,
-            KeyHandler handler,
-            List<Potion> potions,
-            ICollection<GameSprite> mobs,
-            List<Item> items)
+        private static Random randomNumberGenerator = new Random();
+
+        public GameEngine()
         {
+            IDrawEngine drawEngine = new ConsoleDrawEngine();
+            Labyrinth maze = new Labyrinth(30, 80);
+            maze.Generate();
+
+            KeyHandler keyhanlder = new KeyHandler();
+            ValidPositionsGenerator positionGenerator = ValidPositionsGenerator.GetInstance;
+            IList<Coords> availablePositions = positionGenerator.Generate(maze, 30);
+
+            Player player = new Player(position: new Coords(1, 1), healthPoints: 50, attackPoints: 10, defensePoints: 12, inventory: new List<Item>());
+            List<Potion> potions = this.GeneratePotions(10, availablePositions);
+            List<GameSprite> mobs = this.GenerateMobs(9, availablePositions);
+            List<Item> items = this.GenerateItems(6, availablePositions);
+
             this.DrawEngine = drawEngine;
-            this.Labyrinth = labyrinth;
+            this.Labyrinth = maze;
             this.Player = player;
-            this.KeyHandler = handler;
+            this.KeyHandler = keyhanlder;
             this.Potions = potions;
             this.Mobs = mobs;
             this.Items = items;
@@ -45,7 +56,7 @@
                 return this.labyrinth;
             }
 
-            set
+            private set
             {
                 this.labyrinth = value;
             }
@@ -58,7 +69,7 @@
                 return this.player;
             }
 
-            set
+            private set
             {
                 this.player = value;
             }
@@ -71,7 +82,7 @@
                 return this.drawEngine;
             }
 
-            set
+            private set
             {
                 this.drawEngine = value;
             }
@@ -84,7 +95,7 @@
                 return this.keyhandler;
             }
 
-            set
+            private set
             {
                 if (value == null)
                 {
@@ -98,19 +109,19 @@
         public List<Potion> Potions
         {
             get { return potions; }
-            set { potions = value; }
+            private set { potions = value; }
         }
 
         public ICollection<GameSprite> Mobs
         {
             get { return this.mobs; }
-            set { this.mobs = value; }
+            private set { this.mobs = value; }
         }
 
         public List<Item> Items
         {
             get { return this.items; }
-            set { this.items = value; }
+            private set { this.items = value; }
         }
 
         public static bool RedrawLabyrinth { get; set; }
@@ -155,7 +166,6 @@
 
                     Console.SetCursorPosition(0, 30);
                     Console.WriteLine(player.ToString());
-                    //TODO : implement print inventory
                 }
             }
             catch (PlayerIsDeadException ex)
@@ -165,6 +175,104 @@
                 LabyrinthMain.Main();
             }
 
+        }
+
+        private List<Potion> GeneratePotions(int potionsCount, IList<Coords> availablePositions)
+        {
+            List<Potion> potions = new List<Potion>();
+
+            for (int i = 0; i < potionsCount; i++)
+            {
+                potions.Add(this.RandomPotion());
+                potions[i].Position = availablePositions[i];
+                availablePositions.RemoveAt(i);
+            }
+
+            return potions;
+        }
+
+        private List<Item> GenerateItems(int itemsCount, IList<Coords> availablePositions)
+        {
+            List<Item> items = new List<Item>();
+
+            for (int i = 0; i < itemsCount; i++)
+            {
+                items.Add(this.RandomItem());
+                items[i].Position = availablePositions[i];
+                availablePositions.RemoveAt(i);
+            }
+
+            return items;
+        }
+
+        private List<GameSprite> GenerateMobs(int mobsCount, IList<Coords> availablePositions)
+        {
+            List<GameSprite> mobs = new List<GameSprite>();
+            mobs.Add(new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 20, defensePoints: 20));
+
+            for (int i = 0; i < mobsCount; i++)
+            {
+                mobs.Add(this.RandomMob());
+                mobs[i].Position = availablePositions[i];
+                availablePositions.RemoveAt(i);
+            }
+
+            return mobs;
+        }
+
+        private Potion RandomPotion()
+        {
+            int potionCase = randomNumberGenerator.Next(0, 3);
+
+            switch (potionCase)
+            {
+                case 0:
+                    return new HealthPotion();
+                case 1:
+                    return new DefensePotion();
+                default:
+                    return new AttackPotion();
+            }
+        }
+
+        private Item RandomItem()
+        {
+            int itemCase = randomNumberGenerator.Next(0, 5);
+
+            switch (itemCase)
+            {
+                case 0:
+                    return new BattleAxe();
+                case 1:
+                    return new BootsOfSwiftness();
+                case 2:
+                    return new Shield();
+                case 3:
+                    return new BattleAxe();
+                case 4:
+                    return new BootsOfSwiftness();
+                default:
+                    return new Shield();
+            }
+        }
+
+        private GameSprite RandomMob()
+        {
+            int mobCase = randomNumberGenerator.Next(0, 5);
+
+            switch (mobCase)
+            {
+                case 0:
+                    return new Bat();
+                case 1:
+                    return new Gorgo();
+                case 2:
+                    return new Skeleton();
+                case 3:
+                    return new Hydra();
+                default:
+                    return new Harpy();
+            }
         }
     }
 }

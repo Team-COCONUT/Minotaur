@@ -15,7 +15,7 @@
         private ICollection<Item> inventory;
         private const char Char = (char)2;
 
-        public Player(Coords position, int healthPoints, int attackPoints, ICollection<Item> inventory, int defensePoints)
+        public Player(Coords position, int healthPoints, int attackPoints, int defensePoints, ICollection<Item> inventory)
             : base(position, healthPoints, attackPoints, defensePoints, Char)
         {
             this.Inventory = inventory;

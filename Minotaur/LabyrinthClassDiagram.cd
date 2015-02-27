@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Minotaur.BattleEngine" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>BattleEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.CollisionChecker" Collapsed="true">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollisionChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Extensions" Collapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameEngine" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAQAAAAEAqQAAACkAABAAAAAAAAABAAAAASAAAAI=</HashCode>
+      <FileName>GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.KeyHandler" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAACAgAIIAAAAAAAAAAAE=</HashCode>
+      <FileName>KeyHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Labyrinth" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IADAAAAAAAAAIAAAAgABAAAAAAAAAAAAgAQAAEAAgAA=</HashCode>
+      <FileName>Labyrinth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.LabyrinthMain" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>LabyrinthMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Artifact" Collapsed="true">
+    <Position X="18.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAkAAAAAAAAAAAEAAACAAAAAQAAAAA=</HashCode>
+      <FileName>Artifacts\Artifact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Items.BattleAxe" Collapsed="true">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAABAA=</HashCode>
+      <FileName>Artifacts\Items\BattleAxe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Items.BootsOfSwiftness" Collapsed="true">
+    <Position X="17.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAAAA=</HashCode>
+      <FileName>Artifacts\Items\BootsOfSwiftness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Items.Item" Collapsed="true">
+    <Position X="15.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Items\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Items.Shield" Collapsed="true">
+    <Position X="15.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Items\Shield.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Potions.AttackPotion" Collapsed="true">
+    <Position X="23.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Potions\AttackPotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Potions.DefensePotion" Collapsed="true">
+    <Position X="19.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Potions\DefensePotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Artifacts.Potions.HealthPotion" Collapsed="true">
+    <Position X="21.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Potions\HealthPotion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Minotaur.Artifacts.Potions.Potion" Collapsed="true">
+    <Position X="21.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Artifacts\Potions\Potion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.DrawEngines.ConsoleDrawEngine" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAACAAAgAJAAAAAAAIAAQEAQAAAAQAAAAACAAA=</HashCode>
+      <FileName>DrawEngines\ConsoleDrawEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Minotaur.Exceptions.PlayerIsDeadException" Collapsed="true">
+    <Position X="8.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\PlayerIsDeadException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.GameSprite" Collapsed="true">
+    <Position X="18.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAAQAAAAEAkAAgAIQAIAIAEAAAAEAQAAQAAQAA=</HashCode>
+      <FileName>GameSprites\GameSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Player" Collapsed="true">
+    <Position X="16.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIACACAEAAgAIAAAIAAAACACAAAAAgAAAAA=</HashCode>
+      <FileName>GameSprites\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Bat" Collapsed="true">
+    <Position X="19.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Bat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Gorgo" Collapsed="true">
+    <Position X="14.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Gorgo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Harpy" Collapsed="true">
+    <Position X="18" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Harpy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Hydra" Collapsed="true">
+    <Position X="21.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Hydra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Minotaur" Collapsed="true">
+    <Position X="16.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Minotaur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Mob" Collapsed="true">
+    <Position X="20.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Mob.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.GameSprites.Mobs.Skeleton" Collapsed="true">
+    <Position X="23.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAEAAA=</HashCode>
+      <FileName>GameSprites\Mobs\Skeleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minotaur.Generators.ValidPositionsGenerator" Collapsed="true">
+    <Position X="10.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABABAAAAAAAQAAEAAAAA=</HashCode>
+      <FileName>Generators\ValidPositionsGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="Minotaur.Coords" Collapsed="true">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Coords.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Minotaur.Interfaces.IDrawEngine" Collapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgABAAAAAAAIAAAEAQAAAAQAAAAACAAA=</HashCode>
+      <FileName>Interfaces\IDrawEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Minotaur.Interfaces.IDrinkable" Collapsed="true">
+    <Position X="8.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDrinkable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Minotaur.Interfaces.IEquippable" Collapsed="true">
+    <Position X="10.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAgAIAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IEquippable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Minotaur.Interfaces.IGenerator" Collapsed="true">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Interfaces\IGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Minotaur.Interfaces.IHealthPotion" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IHealthPotion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Minotaur.Interfaces.IMovable" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMovable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Minotaur.Enumerations.CellsEnum" Collapsed="true">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Enumerations\CellsEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Minotaur.Enumerations.Directions" Collapsed="true">
+    <Position X="10.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Enumerations\Directions.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
