@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading;
+    using System.Linq;
 
     using Artifacts.Items;
     using Artifacts.Potions;
@@ -20,7 +21,7 @@
         private Player player;
         private KeyHandler keyhandler;
         private List<Potion> potions;
-        private ICollection<GameSprite> mobs;
+        private IList<GameSprite> mobs;
         private List<Item> items;
 
         private static Random randomNumberGenerator = new Random();
@@ -112,7 +113,7 @@
             private set { potions = value; }
         }
 
-        public ICollection<GameSprite> Mobs
+        public IList<GameSprite> Mobs
         {
             get { return this.mobs; }
             private set { this.mobs = value; }
@@ -141,6 +142,11 @@
                     {
                         throw new PlayerIsDeadException();
                     }
+                    
+                    if (!this.IsMinotourAlive())
+                    {
+                        throw new MinotourIsDeadException();
+                    }
 
                     if (RedrawLabyrinth)
                     {
@@ -168,13 +174,17 @@
                     Console.WriteLine(player.ToString());
                 }
             }
-            catch (PlayerIsDeadException ex)
+            catch (GameOverException ex)
             {
                 this.DrawEngine.ClearAll();
                 ConsoleDrawEngine.DisplayStickyMsg(ex.Message, "The game will be restarted...");
                 LabyrinthMain.Main();
             }
+        }
 
+        private bool IsMinotourAlive()
+        {
+            return this.Mobs.FirstOrDefault(m => m.GetType().Name == "Minotaur") != null;
         }
 
         private List<Potion> GeneratePotions(int potionsCount, IList<Coords> availablePositions)
@@ -208,7 +218,6 @@
         private List<GameSprite> GenerateMobs(int mobsCount, IList<Coords> availablePositions)
         {
             List<GameSprite> mobs = new List<GameSprite>();
-            mobs.Add(new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 20, defensePoints: 20));
 
             for (int i = 0; i < mobsCount; i++)
             {
@@ -216,6 +225,7 @@
                 mobs[i].Position = availablePositions[i];
                 availablePositions.RemoveAt(i);
             }
+            mobs.Add(new Minotaur(position: new Coords(79, 29), healthPoints: 99, attackPoints: 20, defensePoints: 20));
 
             return mobs;
         }

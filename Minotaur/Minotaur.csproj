@@ -47,6 +47,8 @@
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Enumerations\CellsEnum.cs" />
     <Compile Include="DrawEngines\ConsoleDrawEngine.cs" />
+    <Compile Include="Exceptions\GameOverException.cs" />
+    <Compile Include="Exceptions\MinotourIsDeadExpection.cs" />
     <Compile Include="Exceptions\PlayerIsDeadException.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Enumerations\Directions.cs" />

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PlayerIsDeadException : ApplicationException
+    public class PlayerIsDeadException : GameOverException
     {
         private const string exceptionMessage = "The player has been slain :(";
 
