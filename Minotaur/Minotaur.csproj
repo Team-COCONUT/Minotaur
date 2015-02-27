@@ -77,7 +77,7 @@
     <Compile Include="GameSprites\Mobs\Minotaur.cs" />
     <Compile Include="GameSprites\Mobs\Mob.cs" />
     <Compile Include="GameSprites\Player.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="LabyrinthMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
