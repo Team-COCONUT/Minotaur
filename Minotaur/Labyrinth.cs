@@ -41,15 +41,15 @@
 
         private List<int[]> GetAvailableCells(int currentRow, int currentCol, bool[,] visitedCells)
         {
-            var left = new int[2] { 0, -1 };
-            var right = new int[2] { 0, 1 };
-            var up = new int[2] { -1, 0 };
-            var down = new int[2] { 1, 0 };
+            int[] left = new int[2] { 0, -1 };
+            int[] right = new int[2] { 0, 1 };
+            int[] up = new int[2] { -1, 0 };
+            int[] down = new int[2] { 1, 0 };
 
-            var directions = new int[][] { left, right, up, down };
-            var availableDirrections = new List<int[]>();
+            int[][] directions = new int[][] { left, right, up, down };
+            List<int[]> availableDirrections = new List<int[]>();
 
-            foreach (var direction in directions)
+            foreach (int[] direction in directions)
             {
                 if (currentCol + direction[1] < visitedCells.GetLength(1) &&
                     currentCol + direction[1] >= 0 &&
@@ -75,19 +75,19 @@
                     visited--;
                 }
 
-                var availableDIrections = GetAvailableCells(currRow, currCol, visitedCells);
+                List<int[]> availableDIrections = GetAvailableCells(currRow, currCol, visitedCells);
                 if (availableDIrections.Count > 0)
                 {
-                    var randomDirecgtion = availableDIrections[random.Next(0, availableDIrections.Count)];
+                    int[] randomDirecgtion = availableDIrections[random.Next(0, availableDIrections.Count)];
                     currRow = randomDirecgtion[0];
                     currCol = randomDirecgtion[1];
                     rowStack.Push(randomDirecgtion[0]);
                     colStack.Push(randomDirecgtion[1]);
 
-                    var walls = GetAvailableCells(currRow, currCol, visitedCells);
+                    List<int[]> walls = GetAvailableCells(currRow, currCol, visitedCells);
                     if (walls.Count > 1)
                     {
-                        var randomWall = walls[random.Next(0, walls.Count)];
+                        int[] randomWall = walls[random.Next(0, walls.Count)];
                         field[randomWall[0], randomWall[1]] = CellsEnum.Wall;
                         visitedCells[randomWall[0], randomWall[1]] = true;
                         visited--;
@@ -100,9 +100,9 @@
                 }
                 else
                 {
-                    for (var row = 0; row < visitedCells.GetLength(0); row++)
+                    for (int row = 0; row < visitedCells.GetLength(0); row++)
                     {
-                        for (var col = 0; col < visitedCells.GetLength(1); col++)
+                        for (int col = 0; col < visitedCells.GetLength(1); col++)
                         {
                             if (visitedCells[row, col] == false)
                             {

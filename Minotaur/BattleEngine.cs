@@ -10,9 +10,9 @@
     {
         public static void StartBattle(GameSprite player, GameSprite enemy, ICollection<GameSprite> enemies)
         {
-            var battleLog = new StringBuilder();
-            var roundCounter = 1;
-            var playerTurn = true;
+            StringBuilder battleLog = new StringBuilder();
+            int roundCounter = 1;
+            bool playerTurn = true;
 
             battleLog.AppendLine(string.Format("Started battle with: {0}", enemy.GetType().Name));
             battleLog.AppendLine(new string('-', 20));
@@ -21,11 +21,11 @@
             {
                 battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
 
-                var playerAttack = player.Attack();
-                var playerDefence = player.Defend();
+                int playerAttack = player.Attack();
+                int playerDefence = player.Defend();
 
-                var enemyAttack = enemy.Attack();
-                var enemyDefence = enemy.Defend();
+                int enemyAttack = enemy.Attack();
+                int enemyDefence = enemy.Defend();
 
                 if (playerTurn)
                 {

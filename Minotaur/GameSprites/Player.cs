@@ -63,7 +63,7 @@
         {
             if (potion is HealthPotion)
             {
-                var healthPotion = potion as HealthPotion;
+                HealthPotion healthPotion = potion as HealthPotion;
                 this.HealthPoints += healthPotion.HealthEffect;
             }
 
@@ -73,7 +73,7 @@
 
         public void Move(Directions direction, Labyrinth labyrinth)
         {
-            var newPosition = this.Position;
+            Coords newPosition = this.Position;
 
             switch (direction)
             {
@@ -96,8 +96,7 @@
 
         public override string ToString()
         {
-            //var baseInfo = base.ToString();
-            var result = new StringBuilder(base.ToString());
+            StringBuilder result = new StringBuilder(base.ToString());
             var itemsInInventory = this.Inventory.Select(i => i.GetType().Name);
             result.Append(string.Format(" Items: [{0}]", string.Join(", ", itemsInInventory)));
             return result.ToString();

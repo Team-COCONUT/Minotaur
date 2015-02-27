@@ -15,20 +15,20 @@
         public void DisplayLabyrinth(Labyrinth labyrinth, int visibleAreaX, int visibleAreaY)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-            for (var row = 0; row < labyrinth.Field.GetLength(0); row++)
+            for (int row = 0; row < labyrinth.Field.GetLength(0); row++)
             {
                 if (!(row >= visibleAreaY - radius && row <= visibleAreaY + radius))
                 {
                     continue;
                 }
                
-                for (var col = 0; col < labyrinth.Field.GetLength(1); col++)
+                for (int col = 0; col < labyrinth.Field.GetLength(1); col++)
                 {
                     if (col >= (visibleAreaX - radius) && col <= (visibleAreaX + radius))
                     {
-                        var charToDraw = '#';
+                        char charToDraw = '#';
                         if (labyrinth.Field[row, col] != CellsEnum.Wall)
                         {
                             charToDraw = ' ';
@@ -41,7 +41,6 @@
                 Console.SetCursorPosition(visibleAreaX - radius < 0 ? 0 : visibleAreaX - radius, row);
                 Console.Write(sb);
                 sb.Clear();
-                //sb.AppendLine();
             }
 
           
@@ -60,7 +59,7 @@
 
         public void DisplayPotion(IEnumerable<Potion> potions, int x, int y)
         {
-            foreach (var potion in potions)
+            foreach (Potion potion in potions)
             {
                 if (potion.Position.X >= (x - radius) && potion.Position.X <= (x + radius))
                 {
@@ -74,7 +73,7 @@
 
         public void DisplayMobs(IEnumerable<GameSprite> mobs, int x, int y)
         {
-            foreach (var mob in mobs)
+            foreach (GameSprite mob in mobs)
             {
                 if (mob.Position.X >= (x - radius) && mob.Position.X <= (x + radius))
                 {
@@ -88,7 +87,7 @@
 
         public void DisplayItems(IEnumerable<Item> items, int x, int y)
         {
-            foreach (var item in items)
+            foreach (Item item in items)
             {
                 if (item.Position.X >= (x - radius) && item.Position.X <= (x + radius))
                 {

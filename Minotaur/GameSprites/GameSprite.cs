@@ -99,8 +99,8 @@
 
         public virtual void CheckPosition(Coords currPosition, Labyrinth labyrinth)
         {
-            var isXInMatrix = currPosition.X >= 0 && currPosition.X < labyrinth.Field.GetLength(1);
-            var isYInMatrix = currPosition.Y >= 0 && currPosition.Y < labyrinth.Field.GetLength(0);
+            bool isXInMatrix = currPosition.X >= 0 && currPosition.X < labyrinth.Field.GetLength(1);
+            bool isYInMatrix = currPosition.Y >= 0 && currPosition.Y < labyrinth.Field.GetLength(0);
 
             if (isXInMatrix && isYInMatrix)
             {

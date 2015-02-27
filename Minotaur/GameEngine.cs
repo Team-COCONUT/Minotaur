@@ -43,8 +43,8 @@
 
             this.DrawEngine = drawEngine;
             this.Labyrinth = maze;
-            this.Player = player;
             this.KeyHandler = keyhanlder;
+            this.Player = player;
             this.Potions = potions;
             this.Mobs = mobs;
             this.Items = items;
@@ -129,7 +129,7 @@
 
         public void Run()
         {
-            var prevoiusPosition = new Coords(0, 0);
+            Coords prevoiusPosition = new Coords(0, 0);
             keyhandler.ImplementMove(this.Player, this.Labyrinth);
 
             this.DrawEngine.DisplayLabyrinth(this.Labyrinth, prevoiusPosition.X, prevoiusPosition.Y);

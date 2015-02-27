@@ -10,7 +10,7 @@
     {
         public static void CheckPotionCollision(Player player, ICollection<Potion> potions)
         {
-            var potion = potions.FirstOrDefault(p => p.Position.X == player.Position.X &&
+            Potion potion = potions.FirstOrDefault(p => p.Position.X == player.Position.X &&
                                             p.Position.Y == player.Position.Y);
 
             if (potion != null)
@@ -33,7 +33,7 @@
 
         public static void CheckItemCollision(Player player, ICollection<Item> items)
         {
-            var item = items.FirstOrDefault(i => i.Position.X == player.Position.X &&
+            Item item = items.FirstOrDefault(i => i.Position.X == player.Position.X &&
                                                   i.Position.Y == player.Position.Y);
 
             if (item != null)
