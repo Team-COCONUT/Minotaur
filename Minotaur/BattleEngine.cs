@@ -3,28 +3,29 @@
     using System.Collections.Generic;
     using System.Text;
 
-    using Minotaur.GameSprites;
-    using Minotaur.DrawEngines;
+    using GameSprites;
+    using DrawEngines;
 
     public static class BattleEngine
     {
         public static void StartBattle(GameSprite player, GameSprite enemy, ICollection<GameSprite> enemies)
         {
-            StringBuilder battleLog = new StringBuilder();
-            int roundCounter = 1;
-            bool playerTurn = true;
+            var battleLog = new StringBuilder();
+            var roundCounter = 1;
+            var playerTurn = true;
 
             battleLog.AppendLine(string.Format("Started battle with: {0}", enemy.GetType().Name));
             battleLog.AppendLine(new string('-', 20));
+
             while (player.IsAlive() && enemy.IsAlive())
             {
                 battleLog.AppendLine(string.Format("Round {0}: Player health {1}{2} | Enemy health {1}{3}", roundCounter, (char)3, player.HealthPoints, enemy.HealthPoints));
 
-                int playerAttack = player.Attack();
-                int playerDefence = player.Defend();
+                var playerAttack = player.Attack();
+                var playerDefence = player.Defend();
 
-                int enemyAttack = enemy.Attack();
-                int enemyDefence = enemy.Defend();
+                var enemyAttack = enemy.Attack();
+                var enemyDefence = enemy.Defend();
 
                 if (playerTurn)
                 {

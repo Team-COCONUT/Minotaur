@@ -126,7 +126,9 @@
                     RedrawLabyrinth = false;
                 }
                 
-                CollisionChecker.Check(this.Player, this.Potions, this.Mobs, this.Items);
+                CollisionChecker.CheckPotionCollision(this.Player, this.Potions);
+                CollisionChecker.CheckMobCollision(this.Player, this.Mobs);
+                CollisionChecker.CheckItemCollision(this.Player, this.Items);
                 this.DrawEngine.DisplayPlayer(this.Player);
 
                 prevoiusPosition.X = this.player.Position.X;

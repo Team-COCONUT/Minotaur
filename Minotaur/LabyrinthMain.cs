@@ -10,7 +10,7 @@
     using Interfaces;
     using Generators;
 
-    public class Program
+    public class LabyrinthMain
     {
         public static void Main()
         {
