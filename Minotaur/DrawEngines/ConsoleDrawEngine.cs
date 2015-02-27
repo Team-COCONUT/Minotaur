@@ -54,7 +54,7 @@
 
         public void DisplayPlayer(Player player)
         {
-            this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.White);
+            this.PrintStringAtPosition(player.Position.X, player.Position.Y, player.DisplayChar.ToString(), ConsoleColor.Magenta);
         }
 
         public void DisplayPotion(IEnumerable<Potion> potions, int x, int y)
